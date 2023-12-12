@@ -20,7 +20,6 @@ const jobsRoute=require('./routes/jobsRoute')
 const JobApplyRoute=require('./routes/JobApplyRoute')
 
 
-
 app.use('/api/feedback/', feedbackRoute)
 app.use('/api/users/', userRoute)
 app.use('/api/admins/', adminRoute)
