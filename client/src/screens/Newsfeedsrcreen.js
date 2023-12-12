@@ -75,7 +75,7 @@ export default function Newsfeedscreen() {
                         News & Events
                     
                     </h10>
-                    <p style={{ fontSize: "12px", color: "white", fontFamily: "Mukta, calibri", fontStyle: "italic" }}>Example</p>
+                    <p style={{ fontSize: "12px", color: "white", fontFamily: "Mukta, calibri", fontStyle: "italic" }}>Sub Text</p>
                     <br />
                 </div>
             </div>
