@@ -195,7 +195,7 @@ function JobportalManagementScreen() {
     const updateJobs = {
       jobtitle,
       category,
-
+      ministry,
       description,
       salary,
       location,
