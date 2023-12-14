@@ -34,14 +34,15 @@ router.get("/", async (req, res) => {
   }
 });
 
-//update newsfeed
+//update 
 router.put("/:id", async (req, res) => {
   let userId = req.params.id;
-  const { jobtitle, category, description, salary, location } = req.body;
+  const { jobtitle, category, ministry,description, salary, location } = req.body;
 
   const updateJobs = {
     jobtitle,
     category,
+    ministry,
     description,
     salary,
     location,
