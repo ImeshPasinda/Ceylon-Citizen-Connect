@@ -24,12 +24,10 @@ import JobApplicantsManagementScreen from "./screens/JobApplicantsManagementScre
 import JobApplyScreen from "./screens/JobApplyScreen";
 
 function App() {
-
   const userstate = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userstate;
   const adminloginstate = useSelector((state) => state.adminloginReducer);
   const { currentAdmin } = adminloginstate;
-
 
   return (
     <div className="App">
@@ -47,7 +45,6 @@ function App() {
           <Route path="/about" exact element={<AboutScreen />} />
           <Route path="/faq" exact element={<FAQScreen />} />
           <Route path="/newsfeed" exact element={<Newsfeedscreen />} />
-
 
           {currentUser ? (
             <Route path="/feedback" exact element={<FeedbackScreen />} />
@@ -107,7 +104,6 @@ function App() {
           ) : (
             <Route path="/error" exact element={<Errorscreen />} />
           )}
-
         </Routes>
       </BrowserRouter>
       <Footer />

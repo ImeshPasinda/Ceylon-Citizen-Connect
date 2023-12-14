@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/addcustomer", async (req, res) => {
+router.post("/", async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/getcurrentuser/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   let userId = req.params.id;
   try {
     const currentusers = await User.findById(userId);
@@ -71,10 +71,23 @@ router.get("/getcurrentuser/:id", async (req, res) => {
   }
 });
 
-router.get("/getallusers", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const users = await User.find();
     res.send(users);
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
+//customer management delete function
+router.delete("/:id", async (req, res) => {
+  let userId = req.params.id;
+
+  try {
+    await User.findByIdAndDelete(userId);
+
+    res.send("Customer Deleted Successfully");
   } catch (error) {
     return res.status(400).json({ message: error });
   }
@@ -128,18 +141,6 @@ router.put("/update/email/:id", async (req, res) => {
   }
 });
 
-//customer management delete function
-router.delete("/delete/customer/:id", async (req, res) => {
-  let userId = req.params.id;
-
-  try {
-    await User.findByIdAndDelete(userId);
-
-    res.send("Customer Deleted Successfully");
-  } catch (error) {
-    return res.status(400).json({ message: error });
-  }
-});
 
 //customer management update function
 
