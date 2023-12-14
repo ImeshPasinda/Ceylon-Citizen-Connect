@@ -3,7 +3,7 @@ const router = express.Router();
 const Application = require("../models/JobApplyModel");
 
 router.post("/", async (req, res) => {
-  const { name, email, address, phoneNo, jobCategory } = req.body;
+  const { name, email, address, phoneNo, jobTitle ,highEdu} = req.body;
 
   try {
     const newApplication = new Application({
@@ -11,7 +11,8 @@ router.post("/", async (req, res) => {
       email,
       address,
       phoneNo,
-      jobCategory,
+      jobTitle,
+      highEdu,
     });
     newApplication.save();
     res.send("Application send Successfully");
