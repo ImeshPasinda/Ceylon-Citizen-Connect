@@ -6,7 +6,8 @@ const jobApplicantSchema = mongoose.Schema(
     email: { type: String, require },
     address: { type: String, require },
     phoneNo: { type: String, require },
-    jobCategory: { type: String, require },
+    jobTitle: { type: String, require },
+    highEdu: { type: String, require },
   },
   {
     timestamps: true,
