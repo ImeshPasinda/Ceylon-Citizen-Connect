@@ -88,7 +88,7 @@ export default function AdminProfilescreen() {
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Government Job/Employement Management</h5>
+            <h5 class="card-title">Public Services Directory Management</h5>
             <p class="card-text">
               -Manage all users and CarrerFeed section by publishing Job
               Vacancies( User Registration, Logins & profiles activities)
@@ -98,7 +98,7 @@ export default function AdminProfilescreen() {
             <br />
             <br />
 
-            <a href="/admin/selectionUC" class="btn">
+            <a href="#" class="btn">
               See More
             </a>
           </div>
@@ -145,7 +145,7 @@ export default function AdminProfilescreen() {
             </p>
             <br />
 
-            <a href="/admin/selectionfn" class="btn">
+            <a href="/admin/newsfeedmanagement" class="btn">
               See More
             </a>
           </div>
@@ -170,7 +170,7 @@ export default function AdminProfilescreen() {
             <br />
             <br />
 
-            <a href="/admin/selectionUC" class="btn">
+            <a href="/admin/jobportalManage" class="btn">
               See More
             </a>
           </div>
