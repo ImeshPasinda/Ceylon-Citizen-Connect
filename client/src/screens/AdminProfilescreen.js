@@ -83,15 +83,14 @@ export default function AdminProfilescreen() {
           style={{ width: "18rem", borderRadius: "15px" }}
         >
           <img
-            src="https://img.freepik.com/free-vector/people-ordering-food-cafe-online_74855-5913.jpg?w=996&t=st=1672324604~exp=1672325204~hmac=529755ba63bdfa1b037ddba4d350aaa4d2d177bf57fec2d01767f3daf5af4ce8"
+            src="https://img.freepik.com/free-vector/flat-customer-support-illustration_23-2148899114.jpg?w=740&t=st=1702648983~exp=1702649583~hmac=b732e76e5b38aded5238a2033188da8ad5de986d29486edfa5274683a766a84b"
             class="card-img-top"
             alt="..."
           />
           <div class="card-body">
             <h5 class="card-title">Public Services Directory Management</h5>
             <p class="card-text">
-              -Manage all users and CarrerFeed section by publishing Job
-              Vacancies( User Registration, Logins & profiles activities)
+              -Manage all users , water supply and electricity e-Bills Management
               <br />- Generate Detailed Reports <br></br>
             </p>
             <br />
@@ -155,7 +154,7 @@ export default function AdminProfilescreen() {
           style={{ width: "18rem", borderRadius: "15px" }}
         >
           <img
-            src="https://img.freepik.com/free-vector/people-ordering-food-cafe-online_74855-5913.jpg?w=996&t=st=1672324604~exp=1672325204~hmac=529755ba63bdfa1b037ddba4d350aaa4d2d177bf57fec2d01767f3daf5af4ce8"
+            src="https://img.freepik.com/free-vector/group-business-people-avatar-character_24877-57314.jpg?w=826&t=st=1702649095~exp=1702649695~hmac=71d2fb88bd1a858b098a51d74c1aa0cfb7cd8c059e9296bb58a0e6a188327614"
             class="card-img-top"
             alt="..."
           />
