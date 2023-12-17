@@ -25,6 +25,7 @@ export default function Loginscreen() {
     function login() {
 
         const user = { email, password }
+        dispatch(loginUser(user))
 
     }
 
