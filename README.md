@@ -70,7 +70,6 @@ MONGODB_URI=your_mongodb_connection_uri
 - Express.js
 - React
 - Node.js
-- [Other technologies or libraries used in the project]
 
 ## Contributing
 

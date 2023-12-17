@@ -1,288 +1,256 @@
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import axios from "axios";
+import Swal from "sweetalert2";
 
+export const UserFeedBack = (newFeedback) => async (dispatch) => {
+  dispatch({ type: "USER_FEEDBACK_SENDING" });
 
-export const UserFeedBack = (newFeedback) => async dispatch => {
+  try {
+    const response = await axios.post("/api/feedback/", newFeedback);
 
-    dispatch({ type: 'USER_FEEDBACK_SENDING' })
+    console.log(response);
+    dispatch({ type: "USER_FEEDBACK_SUCCESS" });
+    setTimeout(function() {
+      window.location.reload();
+    }, 1500);
 
-    try {
-        const response = await axios.post('/api/feedback/post',newFeedback )
-       
-         console.log(response);
-         dispatch({ type: 'USER_FEEDBACK_SUCCESS' })
-         setTimeout(function(){
-             window.location.reload();
-          }, 1500);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
 
-        
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
+    Toast.fire({
+      icon: "success",
+      title: "Feedback Added Successfully. Thankyou for your valuble feedback",
+    });
 
-        
+    setTimeout(function() {
+      window.location.reload("/admin/customers");
+    }, 1500);
 
-        Toast.fire({
-            icon: 'success',
-            title: 'Feedback Added Successfully. Thankyou for your valuble feedback'
-        })
-
-        setTimeout(function () {
-            window.location.reload('/admin/customers');
-        }, 1500);
-
-
-
-        console.log(response);
-        dispatch({ type: 'DELETE_CUSTOMER_SUCCESS' })
-
-    } catch (error) {
-        dispatch({ type: 'USER_FEEDBACK_FAILED' + error, payload: error })
-    }
-}
+    console.log(response);
+    dispatch({ type: "DELETE_CUSTOMER_SUCCESS" });
+  } catch (error) {
+    dispatch({ type: "USER_FEEDBACK_FAILED" + error, payload: error });
+  }
+};
 
 // delete user feedback - feedback management
-export const deletefeedbackAction = (userId) => async dispatch => {
+export const deletefeedbackAction = (userId) => async (dispatch) => {
+  dispatch({ type: "FEEDBACK_DELETE_REQUEST" });
 
-    dispatch({ type: 'FEEDBACK_DELETE_REQUEST' })
+  try {
+    const response = await axios.delete(`/api/feedback/${userId}`);
 
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
 
-    try {
-        const response = await axios.delete(`/api/feedback/delete/feedback/${userId}`)
+    Toast.fire({
+      icon: "success",
+      title: "Feedback deleted successfully",
+    });
 
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
+    setTimeout(function() {
+      window.location.reload("/admin/feedback");
+    }, 3500);
 
-        Toast.fire({
-            icon: 'success',
-            title: 'Feedback deleted successfully'
-        })
+    console.log(response);
+    dispatch({ type: "DELETE_CUSTOMER_SUCCESS" });
+  } catch (error) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
 
-        setTimeout(function () {
-            window.location.reload('/admin/feedback');
-        }, 3500);
+    Toast.fire({
+      icon: "error",
+      title: "Unsuccessful Operation",
+    });
 
-
-
-        console.log(response);
-        dispatch({ type: 'DELETE_CUSTOMER_SUCCESS' })
-
-
-
-
-    } catch (error) {
-
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-
-        Toast.fire({
-            icon: 'error',
-            title: 'Unsuccessful Operation'
-        })
-
-
-        dispatch({ type: 'DELETE_OPERATION_FAILED', payload: error })
-    }
-}
-
+    dispatch({ type: "DELETE_OPERATION_FAILED", payload: error });
+  }
+};
 
 //add to home screen
 
-export const updateDisplayFeedback = (updateDisplayFeedback, userId, val) => async dispatch => {
+export const updateDisplayFeedback = (
+  updateDisplayFeedback,
+  userId,
+  val
+) => async (dispatch) => {
+  dispatch({ type: "DISPLAY_CUSTOMER_FEEDBACK_REQUEST" });
 
-    dispatch({ type: 'DISPLAY_CUSTOMER_FEEDBACK_REQUEST' })
+  if (val === true) {
+    try {
+      const response = await axios.put(
+        `/api/feedback/${userId}`,
+        updateDisplayFeedback
+      );
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
 
+      Toast.fire({
+        icon: "success",
+        title: "Add feedback successfully",
+      });
+      setTimeout(function() {
+        window.location.reload("/admin/customers");
+      }, 1500);
 
-    if (val === true) {
+      console.log(response);
+      dispatch({ type: "DISPLAY_CUSTOMER_FEEDBACK_SUCCESS" });
+    } catch (error) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
 
+      Toast.fire({
+        icon: "error",
+        title: "Adding feedback unsuccessfully",
+      });
 
-        try {
-            const response = await axios.put(`/api/feedback/update/feedback/display/${userId}`, updateDisplayFeedback)
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'success',
-                title: 'Add feedback successfully'
-            })
-            setTimeout(function () {
-                window.location.reload('/admin/customers');
-            }, 1500);
-           
-
-            console.log(response);
-            dispatch({ type: 'DISPLAY_CUSTOMER_FEEDBACK_SUCCESS' })
-
-
-        } catch (error) {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'error',
-                title: 'Adding feedback unsuccessfully'
-            })
-
-            dispatch({ type: 'DISPLAY_CUSTOMER_FEEDBACK_FAILED', payload: error })
-        }
-
-
-    } else {
-
-        try {
-            const response = await axios.put(`/api/feedback/update/feedback/display/${userId}`, updateDisplayFeedback)
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'success',
-                title: 'Remove feedback successfully'
-            })
-            setTimeout(function () {
-                window.location.reload('/admin/feedback');
-            }, 1500);
-            
-
-
-            console.log(response);
-            dispatch({ type: 'DISPLAY_CUSTOMER_FEEDBACK_SUCCESS' })
-
-
-        } catch (error) {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 5000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'error',
-                title: 'Remove Feedback unsuccessfully'
-            })
-
-            dispatch({ type: 'DISPLAY_CUSTOMER_FEEDBACK_FAILED', payload: error })
-        }
+      dispatch({ type: "DISPLAY_CUSTOMER_FEEDBACK_FAILED", payload: error });
     }
+  } else {
+    try {
+      const response = await axios.put(
+        `/api/feedback/${userId}`,
+        updateDisplayFeedback
+      );
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
 
+      Toast.fire({
+        icon: "success",
+        title: "Remove feedback successfully",
+      });
+      setTimeout(function() {
+        window.location.reload("/admin/feedback");
+      }, 1500);
 
-}  
+      console.log(response);
+      dispatch({ type: "DISPLAY_CUSTOMER_FEEDBACK_SUCCESS" });
+    } catch (error) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
 
-export const updateReplyMessageAction = (updateReplyMassage, userId) => async dispatch => {
+      Toast.fire({
+        icon: "error",
+        title: "Remove Feedback unsuccessfully",
+      });
 
-    dispatch({ type: 'DISPLAY_CUSTOMER_FEEDBACK_REQUEST' })
+      dispatch({ type: "DISPLAY_CUSTOMER_FEEDBACK_FAILED", payload: error });
+    }
+  }
+};
 
+export const updateReplyMessageAction = (updateReplyMassage, userId) => async (
+  dispatch
+) => {
+  dispatch({ type: "DISPLAY_CUSTOMER_FEEDBACK_REQUEST" });
 
-   
+  try {
+    const response = await axios.put(
+      `/api/feedback/update/reply/${userId}`,
+      updateReplyMassage
+    );
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
 
+    Toast.fire({
+      icon: "success",
+      title: "Reply message successfully",
+    });
+    setTimeout(function() {
+      window.location.reload("/admin/feedback");
+    }, 1500);
 
-        try {
-            const response = await axios.put(`/api/feedback/update/reply/${userId}`, updateReplyMassage)
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
+    console.log(response);
+    dispatch({ type: "REPLY_MESSAGE_SEND_SUCCESS" });
+  } catch (error) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
 
-            Toast.fire({
-                icon: 'success',
-                title: 'Reply message successfully'
-            })
-            setTimeout(function () {
-                window.location.reload('/admin/feedback');
-            }, 1500);
-           
+    Toast.fire({
+      icon: "error",
+      title: "Reply send unsuccessfully",
+    });
 
-            console.log(response);
-            dispatch({ type: 'REPLY_MESSAGE_SEND_SUCCESS' })
-
-
-        } catch (error) {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'error',
-                title: 'Reply send unsuccessfully'
-            })
-
-            dispatch({ type: 'REPLY_MESSAGE_SEND_UNSUCCESSFULLY', payload: error })
-        }
-
-
-    
-
-}
+    dispatch({ type: "REPLY_MESSAGE_SEND_UNSUCCESSFULLY", payload: error });
+  }
+};

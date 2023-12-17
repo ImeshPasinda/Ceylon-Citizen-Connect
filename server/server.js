@@ -18,7 +18,7 @@ const feedbackRoute = require('./routes/feedbackRoute')
 const newsfeedRoute = require('./routes/newsfeedRoute')
 const jobsRoute=require('./routes/jobsRoute')
 const JobApplyRoute=require('./routes/JobApplyRoute')
-
+const publicServiceRoute=require('./routes/publicServiceRoute')
 
 
 app.use('/api/feedback/', feedbackRoute)
@@ -27,7 +27,7 @@ app.use('/api/admins/', adminRoute)
 app.use('/api/newsfeed/', newsfeedRoute)
 app.use('/api/jobportal/',jobsRoute)
 app.use('/api/jobapply/',JobApplyRoute)
-
+app.use('/api/publicservice/',publicServiceRoute)
 
 
 app.get("/", (req, res) => {
