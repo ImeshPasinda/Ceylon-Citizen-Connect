@@ -5,10 +5,10 @@ function AboutScreen() {
     <div>
       <div class="container">
         <div className="row justify-content-center">
-          <div className="box col-md-15 m-5 p-5  p-2 mb-5 shadow ">
+          
             <div class="container">
               <div class="content-section">
-                <div class="content">
+                <div class="content" style={{paddingTop : '100px'}}>
                   <h1>About Us - Ceylon Citizen Connect</h1><br />
                     <br />
                   <h5>
@@ -54,13 +54,13 @@ function AboutScreen() {
                 </div>
               </div>
               <div class="image-section">
-                <img src="" style={{ borderRadius: "25px" }} />
+                <img src="https://img.freepik.com/premium-photo/flat-design-illustration-facebook-social-network-groups_863013-52873.jpg?w=826" style={{ borderRadius: "25px" }} />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    
   );
 }
 

@@ -13,7 +13,10 @@ function FAQScreen() {
           <div class="wrapper bg-white rounded shadow">
             <br></br>
 
-            <div class="h2 text-center fw-bold">Frequently Asked Questions</div>
+            <div className="h2 text-center fw-bold" style={{ fontFamily: 'Signika Negative, sans-serif' }}>
+  Frequently Asked Questions
+</div>
+
 
             <div class="d-flex justify-content-center"></div>
             <br></br>
