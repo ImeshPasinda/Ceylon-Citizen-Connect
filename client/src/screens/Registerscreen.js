@@ -91,7 +91,7 @@ export default function Registerscreen() {
                             <button onClick={register} className="btn mt-3 mb-3" >REGISTER</button>  <br />
                             <h9 style={{ fontSize: '15px' }}>Already have an Account ?</h9>
                             <br />
-                             <h9 ><a style={{ color: 'black' }} className='text-start' href="/login">Click Here To Login</a></h9>   
+                             <h9 ><a style={{ color: '#081F3C' }} className='text-start' href="/login">Click Here To Login</a></h9>   
                                 <br />
                                 <br />
                         </div>

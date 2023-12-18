@@ -35,17 +35,17 @@ export default function Navbar() {
                                 </a>
                             </li>
                             <li className="nav-item mt-1">
-                                <a className="nav-link " href="/">
+                                <a className="nav-link " href="/about">
                                     <h16>About Us</h16>
                                 </a>
                             </li>
                             <li className="nav-item mt-1">
-                                <a className="nav-link " href="/">
+                                <a className="nav-link " href="/newsfeed">
                                     <h16>News</h16>
                                 </a>
                             </li>
                             <li className="nav-item mt-1">
-                                <a className="nav-link " href="/">
+                                <a className="nav-link " href="/faq">
                                     <h16>FAQ</h16>
                                 </a>
                             </li>
@@ -56,7 +56,7 @@ export default function Navbar() {
 
 
                                     <a style={{ color: 'white' }} className="dropdown-toggles" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <h15>Hi, {currentUser.name}</h15> <img src='https://static.wixstatic.com/media/618c8c_5f176f88792f40609c74309e7f6f2eb2~mv2.png' style={{ height: '30px', height: '30px' }} />
+                                        <h15 className = "p-2">Hi, {currentUser.name}</h15> <img src='https://static.wixstatic.com/media/618c8c_5f176f88792f40609c74309e7f6f2eb2~mv2.png' style={{ height: '30px', height: '30px' }} />
                                     </a>
 
                                     <ul class="dropdown-menu text-center" style={{ minWidth: '0rem ' }} aria-labelledby="dropdownMenuButton1">
@@ -81,7 +81,7 @@ export default function Navbar() {
                                 <div className="dropdown m-2">
 
                                     <a style={{ color: 'white', width: '120px' }} className="dropdown-toggles" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <h15>Hi, {currentAdmin.AdminName}</h15> <img src='https://static.wixstatic.com/media/618c8c_5f176f88792f40609c74309e7f6f2eb2~mv2.png' style={{ height: '30px', height: '30px' }} />
+                                        <h15 className = "p-2">Hi, {currentAdmin.AdminName}</h15> <img src='https://static.wixstatic.com/media/618c8c_5f176f88792f40609c74309e7f6f2eb2~mv2.png' style={{ height: '30px', height: '30px' }} />
                                     </a>
 
 

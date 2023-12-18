@@ -319,7 +319,7 @@ input {
 
 .dropdown-menu {
 
-  --bs-dropdown-link-active-bg: red !important;
+  --bs-dropdown-link-active-bg: #aec5e0 !important;
   --bs-dropdown-min-width: 14rem !important;
 }
 
@@ -337,14 +337,14 @@ input {
 h10 {
   font-family: 'Crushed', cursive;
   font-weight: bold;
-  color: #670001;
+  color: #081F3C;
 
 }
 
 h9 {
   font-family: 'Signika Negative', sans-serif;
   font-weight: bold;
-  color: #670001;
+  color: #081F3C;
 
 }
 
@@ -365,6 +365,13 @@ h16 {
 
 
 }
+
+h2 {
+  font-family: 'Signika Negative', sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+}
+
 
 
 h20 {
@@ -508,3 +515,8 @@ tbody tr:nth-child(even) {
   padding-left: 10px; /* Adjust the value as needed */
   padding-right: 10px; /* Adjust the value as needed */
 }
+/* FAQScreen.css */
+.accordion-body {
+  font-family: 'Signika Negative', sans-serif; /* Apply Signika Negative font to accordion body text */
+}
+
