@@ -25,7 +25,7 @@ export const JobApplication = (newApplicant) => async (dispatch) => {
     dispatch({ type: 'JOB_APPLICATION_SENDING' });
 
     try {
-        const response = await axios.post('/api/jobapply/post', newApplicant);
+        const response = await axios.post('/api/jobapply/', newApplicant);
 
         console.log(response);
         dispatch({ type: 'JOB_APPLICATION_SUCCESS' });
@@ -51,7 +51,7 @@ export const deleteApplicantAction = (ApplicantID) => async dispatch => {
 
 
     try {
-        const response = await axios.delete(`/api/jobapply/delete/applicants/${ApplicantID}`)
+        const response = await axios.delete(`/api/jobapply/${ApplicantID}`)
 
         const Toast = Swal.mixin({
             toast: true,

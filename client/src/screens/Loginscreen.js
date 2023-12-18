@@ -25,6 +25,7 @@ export default function Loginscreen() {
     function login() {
 
         const user = { email, password }
+        dispatch(loginUser(user))
 
     }
 
@@ -43,7 +44,7 @@ export default function Loginscreen() {
                 <div className="col-md-5 mt-5 text-start shadow p-4 mb-7 bg-white rounded">
                     <h2 className="text-center m-4" style={{ fontSize: '35px' }}>Login</h2>
                     <br />
-                    
+
                     {loading && (<Loading />)}
                     {error && (<Error error='Invalid Credentials' />)}
 
@@ -57,7 +58,7 @@ export default function Loginscreen() {
                                 value={email}
                                 onChange={(e) => { setemail(e.target.value) }}
                             />
-                            
+
 
                             <input
                                 required
@@ -67,18 +68,18 @@ export default function Loginscreen() {
                                 value={password}
                                 onChange={(e) => { setpassword(e.target.value) }}
                             />
-                    
+
 
 
                             <button onClick={login} className="btn mt-3 mb-3 " >LOGIN</button>
                             <br />
-                            <h9 className="text-center m-4" style={{ fontSize: '15px' }}>Don't You have an Account ?</h9>
+                            <h9 style={{ fontSize: '15px' }}>Don't You have an Account ?</h9>
                             <br />
-                             <h9 className="text-center m-4"><a style={{ color: 'black' }} className='text-start' href="/register">         Click Here To Register</a></h9>   
-                                <br />
-                                <br />
+                            <h9 ><a style={{ color: '#081F3C' }} className='text-start' href="/register">Click Here To Register</a></h9>
+                            <br />
+                            <br />
 
-                                {/* <a style={{ color: 'black' }} className='text-start' href="/admin/login"> Admin Login</a> */}
+                            {/* <a style={{ color: 'black' }} className='text-start' href="/admin/login"> Admin Login</a> */}
                             {/* <a style={{ color: 'black' }} className='text-start' href="/register">Click Here To Register</a> */}
                         </div>
                         <div className="justify-content-end" style={{ width: "50%" }}>
@@ -90,7 +91,7 @@ export default function Loginscreen() {
             <br />
 
 
-            
+
 
         </div>
     )
