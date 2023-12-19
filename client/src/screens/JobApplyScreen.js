@@ -8,7 +8,7 @@ function JobApplyScreen() {
   const [email, setemail] = useState("");
   const [address, setaddress] = useState("");
   const [phoneNo, setphoneNo] = useState("");
-  const [jobCategory, setjobCategory] = useState("");
+  // const [jobCategory, setjobCategory] = useState("");
   const [jobTitle, setjobTitle] = useState("");
   const [highEdu, sethighEdu] = useState("");
 
@@ -34,7 +34,7 @@ function JobApplyScreen() {
       name.trim().length !== 0 &&
       email.trim().length !== 0 &&
       address.trim().length !== 0 &&
-      jobCategory.trim().length !== 0 &&
+      jobTitle.trim().length !== 0 &&
       isValidEmail &&
       isValidPhoneNo
     ) {
@@ -77,113 +77,99 @@ function JobApplyScreen() {
   }
 
   return (
-    
     <div
       className="d-flex justify-content-center align-items-center"
       style={{ minHeight: "100vh" }}
     >
-       
       <div className="box col-md-5 m-2 p-5">
-      <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+        <br />
+        <br />
+        <br />
+  
         <h9 style={{ fontSize: "35px" }}>Job Application Form</h9>
         {/* <h2 class="h1-responsive font-weight-bold text-center my-4">Job Application Form</h2> */}
         <div class="row justify-content-center">
           <form class="row g-3">
-            <div class="col-12">
-              <label for="name" class="form-label">
-                Full Name
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputname"
-                value={name}
-                onChange={(e) => {
-                  setname(e.target.value);
-                }}
-              ></input>
-            </div>
+            <div class="mb-3">
+              <div class="col-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputname"
+                  placeholder=" Full Name"
+                  value={name}
+                  onChange={(e) => {
+                    setname(e.target.value);
+                  }}
+                ></input>
+              </div>
 
-            <div class="col-12">
-              <label for="inputEmail4" class="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                class="form-control"
-                id="inputEmail4"
-                value={email}
-                onChange={(e) => {
-                  setemail(e.target.value);
-                }}
-              ></input>
-            </div>
+              <div class="col-12">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputEmail4"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => {
+                    setemail(e.target.value);
+                  }}
+                ></input>
+              </div>
 
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">
-                Address
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputAddress"
-                value={address}
-                onChange={(e) => {
-                  setaddress(e.target.value);
-                }}
-              ></input>
-            </div>
+              <div class="col-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputAddress"
+                  placeholder=" Address"
+                  value={address}
+                  onChange={(e) => {
+                    setaddress(e.target.value);
+                  }}
+                ></input>
+              </div>
 
-            <div class="col-12">
-              <label for="inputphone" class="form-label">
-                Mobile No
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputPhone"
-                value={phoneNo}
-                onChange={(e) => {
-                  setphoneNo(e.target.value);
-                }}
-              ></input>
-            </div>
+              <div class="col-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputPhone"
+                  placeholder="Mobile No"
+                  value={phoneNo}
+                  onChange={(e) => {
+                    setphoneNo(e.target.value);
+                  }}
+                ></input>
+              </div>
 
-            <div class="col-12">
-              <label for="inputjobTitle" class="form-label">
-              Job Title
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputjobTitle"
-                value={jobTitle}
-                onChange={(e) => {
-                  setjobTitle(e.target.value);
-                }}
-              ></input>
+              <div class="col-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputjobTitle"
+                  placeholder="Select Job Title "
+                  value={jobTitle}
+                  onChange={(e) => {
+                    setjobTitle(e.target.value);
+                  }}
+                ></input>
+              </div>
+              <br />
+              <div class="col-12">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Your Highest Education Qualification"
+                  id="inputhighEdu"
+                  value={highEdu}
+                  onChange={(e) => {
+                    sethighEdu(e.target.value);
+                  }}
+                ></textarea>
+              </div>
+              <br />
             </div>
-
-            <div class="col-12">
-              <label for="inputhighEdu" class="form-label">
-              Highest Education Qualification
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputhighEdu"
-                value={highEdu}
-                onChange={(e) => {
-                  sethighEdu(e.target.value);
-                }}
-              ></input>
-            </div>
-            <br />
           </form>
           <br />
           <div class="col-12">
