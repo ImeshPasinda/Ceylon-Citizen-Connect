@@ -12,6 +12,7 @@ export default function FeedbackScreen() {
   const [email, setemail] = useState("");
   const [subject, setsubject] = useState("");
   const [message, setmessage] = useState("");
+  const [selectType, setSelectType] = useState("");
   const feedbackstate = useSelector((state) => state.feedbackReducer);
   const { error, loading, success } = feedbackstate;
 
@@ -69,12 +70,16 @@ export default function FeedbackScreen() {
       <br />
 
       <section class="mb-4">
+        <br></br>
         <h2 class="h1-responsive font-weight-bold text-center my-4">
           Citizen Feedbacks & Concerns System{" "}
         </h2>
 
-        <p class="text-center w-responsive mx-auto mb-5">
-          Empowering Citizen Engagement and Government Responsiveness
+        <p
+          class="text-center w-responsive mx-auto mb-5"
+          style={{ fontSize: "24px", fontWeight: "bold" }}
+        >
+          Citizen Feedbacks & Concerns System
         </p>
 
         <div class="row justify-content-center">
@@ -84,7 +89,7 @@ export default function FeedbackScreen() {
             {error && <Error error="Error !!!" />}
             <form id="contact-form" name="contact-form">
               <div class="row ">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="md-form mb-0">
                     <label for="name" class="">
                       Your name
@@ -103,8 +108,9 @@ export default function FeedbackScreen() {
                 </div>
 
                 <br></br>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="md-form mb-0">
+                    <br></br>
                     <label for="email" class="">
                       Your email
                     </label>
@@ -118,6 +124,30 @@ export default function FeedbackScreen() {
                         setemail(e.target.value);
                       }}
                     />
+                  </div>
+                </div>
+                <br></br>
+                <div class="col-md-12">
+                  <div class="md-form mb-0">
+                    <br></br>
+                    <label for="type" class="">
+                      Select Type
+                    </label>
+                    <select
+                      id="type"
+                      name="type"
+                      class="form-control"
+                      value={selectType}
+                      onChange={(e) => {
+                        setSelectType(e.target.value);
+                      }}
+                    >
+                      <option value="" disabled selected>
+                        Select Type
+                      </option>
+                      <option value="Item1">General Feedback</option>
+                      <option value="Item2">Concern/Problem</option>
+                    </select>
                   </div>
                 </div>
               </div>
