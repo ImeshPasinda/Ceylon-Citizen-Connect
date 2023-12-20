@@ -91,12 +91,13 @@ export default function FeedbackScreen() {
               <div class="row ">
                 <div class="col-md-12">
                   <div class="md-form mb-0">
-                    <label for="name" class="">
+                    {/* <label for="name" class="">
                       Your name
-                    </label>
+                    </label> */}
                     <input
                       type="text"
                       id="name"
+                      placeholder="Your name"
                       name="name"
                       class="form-control"
                       value={name}
@@ -111,12 +112,11 @@ export default function FeedbackScreen() {
                 <div class="col-md-12">
                   <div class="md-form mb-0">
                     <br></br>
-                    <label for="email" class="">
-                      Your email
-                    </label>
+                   
                     <input
                       type="text"
                       id="email"
+                      placeholder=" Your email"
                       name="email"
                       class="form-control"
                       value={email}
@@ -126,15 +126,13 @@ export default function FeedbackScreen() {
                     />
                   </div>
                 </div>
-                <br></br>
+                
                 <div class="col-md-12">
                   <div class="md-form mb-0">
-                    <br></br>
-                    <label for="type" class="">
-                      Select Type
-                    </label>
+                  <br></br>
                     <select
                       id="type"
+                      placeholder=" Select Type"
                       name="type"
                       class="form-control"
                       value={selectType}
@@ -156,12 +154,13 @@ export default function FeedbackScreen() {
               <div class="row">
                 <div class="col-md-12">
                   <div class="md-form mb-0">
-                    <label for="subject" class="">
+                    {/* <label for="subject" class="">
                       Subject
-                    </label>
+                    </label> */}
                     <input
                       type="text"
                       id="subject"
+                      placeholder="Subject"
                       name="subject"
                       class="form-control"
                       value={subject}
@@ -176,10 +175,11 @@ export default function FeedbackScreen() {
               <div class="row">
                 <div class="col-md-12">
                   <div class="md-form">
-                    <label for="message">Your message</label>
+                    {/* <label for="message">Your message</label> */}
                     <textarea
                       type="text"
                       id="message"
+                      placeholder="our message"
                       name="message"
                       rows="2"
                       class="form-control md-textarea"
