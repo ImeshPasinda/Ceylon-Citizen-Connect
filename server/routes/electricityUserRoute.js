@@ -8,6 +8,8 @@ router.post('/', async (req, res) => {
     const newUser = new ElectricityUser(req.body);
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
+    res.send("electricity e-bill activation send Successfully");
+
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
