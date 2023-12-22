@@ -23,6 +23,8 @@ import JobportalManagementScreen from "./screens/JobportalManagementScreen";
 import JobApplicantsManagementScreen from "./screens/JobApplicantsManagementScreen";
 import JobApplyScreen from "./screens/JobApplyScreen";
 import PublicServiceManagement from "./screens/PublicServiceManagement";
+import WaterUsersManage from "./screens/WaterUsersManage";
+import ElectricityUsersManage from "./screens/ElectricityUsersManage";
 
 function App() {
   const userstate = useSelector((state) => state.loginUserReducer);
@@ -111,6 +113,26 @@ function App() {
               path="admin/pubserviceManage"
               exact
               element={<PublicServiceManagement />}
+            />
+          ) : (
+            <Route path="/error" exact element={<Errorscreen />} />
+          )}
+
+          {currentAdmin ? (
+            <Route
+              path="admin/waterManage"
+              exact
+              element={<WaterUsersManage />}
+            />
+          ) : (
+            <Route path="/error" exact element={<Errorscreen />} />
+          )}
+
+          {currentAdmin ? (
+            <Route
+              path="admin/electricityManage"
+              exact
+              element={<ElectricityUsersManage />}
             />
           ) : (
             <Route path="/error" exact element={<Errorscreen />} />
