@@ -22,6 +22,7 @@ import JobPortalscreen from "./screens/JobPortalscreen";
 import JobportalManagementScreen from "./screens/JobportalManagementScreen";
 import JobApplicantsManagementScreen from "./screens/JobApplicantsManagementScreen";
 import JobApplyScreen from "./screens/JobApplyScreen";
+import PublicServiceManagement from "./screens/PublicServiceManagement";
 
 function App() {
   const userstate = useSelector((state) => state.loginUserReducer);
@@ -100,6 +101,16 @@ function App() {
               path="admin/jobApplicantManage"
               exact
               element={<JobApplicantsManagementScreen />}
+            />
+          ) : (
+            <Route path="/error" exact element={<Errorscreen />} />
+          )}
+
+          {currentAdmin ? (
+            <Route
+              path="admin/pubserviceManage"
+              exact
+              element={<PublicServiceManagement />}
             />
           ) : (
             <Route path="/error" exact element={<Errorscreen />} />
