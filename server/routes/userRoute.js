@@ -141,7 +141,6 @@ router.put("/update/email/:id", async (req, res) => {
   }
 });
 
-
 //customer management update function
 
 router.put("/update/customer/name/:id", async (req, res) => {
@@ -215,7 +214,7 @@ router.put("/update/customer/verification/:id", async (req, res) => {
 });
 
 // PUT route to update user by email for water e-bill purpose
-router.put('/update/webill/:email', async (req, res) => {
+router.put("/update/webill/:email", async (req, res) => {
   const { email } = req.params; // Get email from URL params
   const { phone, isWaterEbill, address, watermNo } = req.body; // Get updated fields from request body
 
@@ -224,7 +223,7 @@ router.put('/update/webill/:email', async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
 
     // Update the user fields if they exist in the request body
@@ -244,11 +243,49 @@ router.put('/update/webill/:email', async (req, res) => {
     // Save the updated user
     await user.save();
 
-    res.json({ message: 'User updated successfully', user });
+    res.json({ message: "User updated successfully", user });
   } catch (err) {
-    res.status(500).json({ message: 'Failed to update user', error: err.message });
+    res
+      .status(500)
+      .json({ message: "Failed to update user", error: err.message });
+  }
+});
+
+router.put("/update/elecbill/:email", async (req, res) => {
+  const { email } = req.params; // Get email from URL params
+  const { phone, isElecEbill, address, elecmNo } = req.body; // Get updated fields from request body
+
+  try {
+    // Find the user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update the user fields if they exist in the request body
+    if (phone) {
+      user.phone = phone;
+    }
+    if (isElecEbill !== undefined) {
+      user.isElecEbill = isElecEbill;
+    }
+    if (address) {
+      user.address = address;
+    }
+    if (elecmNo) {
+      user.elecmNo = elecmNo;
+    }
+
+    // Save the updated user
+    await user.save();
+
+    res.json({ message: "User updated successfully", user });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Failed to update user", error: err.message });
   }
 });
 
 module.exports = router;
-
