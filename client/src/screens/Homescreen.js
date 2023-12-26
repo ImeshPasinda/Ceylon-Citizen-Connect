@@ -24,7 +24,7 @@ export default function Homescreen() {
 
         <div>
 
-            <div className='row justify-content-center' style={{ paddingTop: '80px' }}>
+            <div className='row justify-content-center' style={{ paddingTop: '120px' }}>
 
                 {/* <div className="flex-container shadow p-0 bg-white rounded justify-content-center"> */}
                 <div className='col-md-9  shadow-lg p-0 mb-5 bg-white rounded'>
