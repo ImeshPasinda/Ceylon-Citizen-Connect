@@ -23,10 +23,10 @@ export default function RegElectricityebillscreen() {
             });
 
             console.log(response.data);
-        
+
         } catch (error) {
             console.error('Error:', error);
-          
+
         }
     };
 
@@ -41,22 +41,23 @@ export default function RegElectricityebillscreen() {
     }
 
     return (
-       
+
 
         <div>
-              <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-            <div className="jumbotron img-jmbo">
-                <div className="container p-3">
-                    <h1 style={{ fontSize: "45px", color: "white" }}>
+            <br />
+            <br />
+            <br />
+            <div class="jumbotron img-jmbo">
+                <div class="container p-3">
+                    <br />
+                    <br />
+                    <br />
+                    <h10 style={{ fontSize: "35px", color: "white" }}>
                         Electricity Supply e-Bill Registration
-                    </h1>
+
+                    </h10>
                     <p style={{ fontSize: "12px", color: "white", fontFamily: "Mukta, calibri", fontStyle: "italic" }}>National Electricity Board</p>
+                    <br />
                 </div>
             </div>
 
@@ -79,7 +80,7 @@ export default function RegElectricityebillscreen() {
                     </div>
                     <div className="col-12">
                         <label htmlFor="inputAddress" className="form-label">Electricity Meter No</label>
-                        <input type="text" className="form-control" id="inputAddress" placeholder="WM1234XXX" value={elecmNo} onChange={(e) => setelecmNo(e.target.value)} />
+                        <input type="text" className="form-control" id="inputAddress" placeholder="EM1234XXX" value={elecmNo} onChange={(e) => setelecmNo(e.target.value)} />
                     </div>
                     <div className="col-12">
                         <label htmlFor="inputAddress2" className="form-label">Address</label>
