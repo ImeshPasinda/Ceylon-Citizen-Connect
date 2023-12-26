@@ -26,6 +26,7 @@ import PublicServiceManagement from "./screens/PublicServiceManagement";
 import WaterUsersManage from "./screens/WaterUsersManage";
 import ElectricityUsersManage from "./screens/ElectricityUsersManage";
 import Regwaterebillscreen from "./screens/Regwaterebillscreen";
+import RegElectricityebillscreen from "./screens/RegElectricityebillscreen";
 
 function App() {
   const userstate = useSelector((state) => state.loginUserReducer);
@@ -50,6 +51,8 @@ function App() {
           <Route path="/faq" exact element={<FAQScreen />} />
           <Route path="/newsfeed" exact element={<Newsfeedscreen />} />
           <Route path="/regwaterebill" exact element={<Regwaterebillscreen />} />
+          <Route path="/regelecbill" exact element={<RegElectricityebillscreen />} />
+
 
           {currentUser ? (
             <Route path="/feedback" exact element={<FeedbackScreen />} />
