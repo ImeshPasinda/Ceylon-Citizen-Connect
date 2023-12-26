@@ -335,7 +335,7 @@ input {
 
 
 h10 {
-  font-family: 'Crushed', cursive;
+  font-family: 'Signika Negative', sans-serif;
   font-weight: bold;
   color: #081F3C;
 
@@ -518,4 +518,12 @@ tbody tr:nth-child(even) {
 /* FAQScreen.css */
 .accordion-body {
   font-family: 'Signika Negative', sans-serif; /* Apply Signika Negative font to accordion body text */
+}
+
+.custom-container {
+  padding-top: 5%;
+  padding-right: 10%;
+  padding-left: 10%;
+  max-width: 1000px; 
+  margin: 0 auto; 
 }

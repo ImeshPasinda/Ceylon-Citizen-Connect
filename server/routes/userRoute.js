@@ -48,8 +48,8 @@ router.post("/login", async (req, res) => {
       const currentUser = {
         name: user[0].name,
         email: user[0].email,
-        isVerified: user[0].isVerified,
-        notifications: user[0].notifications,
+        isWaterEbill: user[0].isWaterEbill,
+        isElecEbill: user[0].isElecEbill,
         _id: user[0]._id,
       };
       res.send(currentUser);
@@ -214,4 +214,41 @@ router.put("/update/customer/verification/:id", async (req, res) => {
   }
 });
 
+// PUT route to update user by email for water e-bill purpose
+router.put('/update/webill/:email', async (req, res) => {
+  const { email } = req.params; // Get email from URL params
+  const { phone, isWaterEbill, address, watermNo } = req.body; // Get updated fields from request body
+
+  try {
+    // Find the user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update the user fields if they exist in the request body
+    if (phone) {
+      user.phone = phone;
+    }
+    if (isWaterEbill !== undefined) {
+      user.isWaterEbill = isWaterEbill;
+    }
+    if (address) {
+      user.address = address;
+    }
+    if (watermNo) {
+      user.watermNo = watermNo;
+    }
+
+    // Save the updated user
+    await user.save();
+
+    res.json({ message: 'User updated successfully', user });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to update user', error: err.message });
+  }
+});
+
 module.exports = router;
+
