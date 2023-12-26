@@ -22,10 +22,10 @@ export default function Regwaterebillscreen() {
             });
 
             console.log(response.data);
-        
+
         } catch (error) {
             console.error('Error:', error);
-          
+
         }
     };
 
@@ -41,12 +41,21 @@ export default function Regwaterebillscreen() {
 
     return (
         <div>
-            <div className="jumbotron img-jmbo">
-                <div className="container p-3">
-                    <h1 style={{ fontSize: "45px", color: "white" }}>
-                        Water Supply e-Bill Registration
-                    </h1>
+           
+            <br />
+            <br />
+            <br />
+            <div class="jumbotron img-jmbo">
+                <div class="container p-3">
+                    <br />
+                    <br />
+                    <br />
+                    <h10 style={{ fontSize: "35px", color: "white" }}>
+                    Water Supply e-Bill Registration
+                    
+                    </h10>
                     <p style={{ fontSize: "12px", color: "white", fontFamily: "Mukta, calibri", fontStyle: "italic" }}>National Water Supply and Drainage Board</p>
+                    <br />
                 </div>
             </div>
 
