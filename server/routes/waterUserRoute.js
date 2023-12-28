@@ -13,6 +13,26 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Route to get all data by email
+router.get("/waterbills/:email", async (req, res) => {
+    const { email } = req.params;
+  
+    try {
+      // Find all data that matches the provided email
+      const waterBills = await WaterSupplyUser.find({ email });
+  
+      if (!waterBills || waterBills.length === 0) {
+        return res.status(404).json({ message: 'No data found for this email' });
+      }
+  
+      // If data is found, send it as a response
+      res.status(200).json(waterBills);
+    } catch (error) {
+      res.status(500).json({ message: 'Server Error' });
+    }
+  });
+  
+
 // Get all water users
 router.get("/", async (req, res) => {
     try {
