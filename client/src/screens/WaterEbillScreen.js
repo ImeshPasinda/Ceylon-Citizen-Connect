@@ -5,10 +5,13 @@ import axios from 'axios';
 
 export default function WaterEbillScreen() {
 
+    const userstate = useSelector(state => state.loginUserReducer);
+    const { currentUser } = userstate;
+
     const [waterbillData, setwaterbillData] = useState([]);
 
     useEffect(() => {
-        axios.get('/api/newsfeed/getallnews')
+        axios.get(`/api/waterUser/waterbills/${currentUser.email}`)
             .then(response => {
                 
                 setwaterbillData(response.data);
@@ -19,44 +22,10 @@ export default function WaterEbillScreen() {
     }, []);
 
 
-
-    const [phone, setPhone] = useState('');
-    const [elecmNo, setelecmNo] = useState('');
-    const [address, setAddress] = useState('');
-
-    const userstate = useSelector(state => state.loginUserReducer);
-    const { currentUser } = userstate;
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            const response = await axios.put(`/api/users/update/elecbill/${currentUser.email}`, {
-                phone,
-                isWaterEbill: true,
-                address,
-                elecmNo
-            });
-
-            console.log(response.data);
-
-        } catch (error) {
-            console.error('Error:', error);
-
-        }
-    };
-
     if (!currentUser) {
         window.location.href = '/login';
         return null;
     }
-
-    if (currentUser.isWaterEbill == true) {
-        window.location.href = '/faq';
-        return null;
-    }
-
-
 
 
     return (
@@ -94,12 +63,12 @@ export default function WaterEbillScreen() {
                             <div key={index} className="col-12">
                                 <div className="card card shadow p-0 bg-white rounded justify-content-center w-100 mb-3"> {/* Adjusted card width to 100% */}
                                     <div className="card-body">
-                                        <h6 style={{ textAlign: 'left' }}>{newsItem.category}</h6>
+                                        <h6 style={{ textAlign: 'left' }}>{waterbillItem.month}</h6>
                                         <div className="row">
                                             <div className="col-md-8">
                                                 {/* <p className="card-text" style={{ textAlign: 'left' }}>{waterbillItem.header}</p> */}
-                                                <p className="card-text" style={{ textAlign: 'left', fontSize: '25px', color: 'green' }}>+Rs. 1,456.00</p>
-                                                <p className="card-text" style={{ textAlign: 'left' }}>Billing Date : 11/01/2023</p>
+                                                <p className="card-text" style={{ textAlign: 'left', fontSize: '25px', color: 'green' }}>{waterbillItem.amountpermonth}+Rs. 1,456.00</p>
+                                                <p className="card-text" style={{ textAlign: 'left' }}>Billing Date : {waterbillItem.date}</p>
 
                                             </div>
                                             <div className="col-md-4 d-flex justify-content-end">
