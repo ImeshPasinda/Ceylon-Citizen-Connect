@@ -117,8 +117,8 @@ export default function WaterEbillScreen() {
             <div className="custom-container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/" style={{ textDecoration: 'none'}}>Home</a></li>
-                        <li class="breadcrumb-item"><a href="/ebils" style={{ textDecoration: 'none'}}>e-Bills</a></li>
+                        <li class="breadcrumb-item"><a href="/" style={{ textDecoration: 'none' }}>Home</a></li>
+                        <li class="breadcrumb-item"><a href="/ebils" style={{ textDecoration: 'none' }}>e-Bills</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Water Bill</li>
                     </ol>
                 </nav>
@@ -140,12 +140,12 @@ export default function WaterEbillScreen() {
                             <div className="card-body">
                                 <h6 style={{ textAlign: 'left' }}>Last Payment</h6>
                                 <h10 className="card-text" style={{ textAlign: 'left', fontSize: '35px' }}>
-    Rs. {firstWaterbill ? (
-        <span>{firstWaterbill.amountpermonth}</span>
-    ) : (
-        <span>0.00</span>
-    )}
-</h10>
+                                    Rs. {firstWaterbill ? (
+                                        <span>{firstWaterbill.amountpermonth}</span>
+                                    ) : (
+                                        <span>0.00</span>
+                                    )}
+                                </h10>
 
                             </div>
 
