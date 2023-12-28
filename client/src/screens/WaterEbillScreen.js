@@ -140,8 +140,13 @@ export default function WaterEbillScreen() {
                             <div className="card-body">
                                 <h6 style={{ textAlign: 'left' }}>Last Payment</h6>
                                 <h10 className="card-text" style={{ textAlign: 'left', fontSize: '35px' }}>
-                                    Rs. {firstWaterbill && <span>{firstWaterbill.amountpermonth}</span>}
-                                </h10>
+    Rs. {firstWaterbill ? (
+        <span>{firstWaterbill.amountpermonth}</span>
+    ) : (
+        <span>0.00</span>
+    )}
+</h10>
+
                             </div>
 
 
