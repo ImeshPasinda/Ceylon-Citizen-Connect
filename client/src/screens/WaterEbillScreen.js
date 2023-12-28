@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 export default function WaterEbillScreen() {
 
@@ -91,14 +90,14 @@ export default function WaterEbillScreen() {
                 <div className="d-flex justify-content-center" style={{ paddingTop: '20px' }}>
 
                     <div className="row justify-content-center">
-                        {newsData.map((newsItem, index) => (
+                        {waterbillData.map((waterbillItem, index) => (
                             <div key={index} className="col-12">
                                 <div className="card card shadow p-0 bg-white rounded justify-content-center w-100 mb-3"> {/* Adjusted card width to 100% */}
                                     <div className="card-body">
                                         <h6 style={{ textAlign: 'left' }}>{newsItem.category}</h6>
                                         <div className="row">
                                             <div className="col-md-8">
-                                                {/* <p className="card-text" style={{ textAlign: 'left' }}>{newsItem.header}</p> */}
+                                                {/* <p className="card-text" style={{ textAlign: 'left' }}>{waterbillItem.header}</p> */}
                                                 <p className="card-text" style={{ textAlign: 'left', fontSize: '25px', color: 'green' }}>+Rs. 1,456.00</p>
                                                 <p className="card-text" style={{ textAlign: 'left' }}>Billing Date : 11/01/2023</p>
 
