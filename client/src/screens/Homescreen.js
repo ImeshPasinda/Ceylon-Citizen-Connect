@@ -91,7 +91,7 @@ export default function Homescreen() {
                             <div class="row justify-content-center">
 
                                 <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" style={{ 'width': '18rem' }}>
+                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
                                         <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
@@ -111,28 +111,7 @@ export default function Homescreen() {
 
                                 <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
 
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" style={{ 'width': '18rem' }}>
-                                        <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">An item</li>
-                                            <li class="list-group-item">A second item</li>
-                                            <li class="list-group-item">A third item</li>
-                                        </ul>
-                                        <div class="card-body">
-                                            <a href="#" class="card-link">Card link</a>
-                                            <a href="#" class="card-link">Another link</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
-
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" style={{ 'width': '18rem' }}>
+                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
                                         <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
@@ -153,7 +132,28 @@ export default function Homescreen() {
 
                                 <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
 
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" style={{ 'width': '18rem' }}>
+                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
+                                        <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">An item</li>
+                                            <li class="list-group-item">A second item</li>
+                                            <li class="list-group-item">A third item</li>
+                                        </ul>
+                                        <div class="card-body">
+                                            <a href="#" class="card-link">Card link</a>
+                                            <a href="#" class="card-link">Another link</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
+
+                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
                                         <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
@@ -170,8 +170,43 @@ export default function Homescreen() {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="d-flex justify-content-center" style={{ paddingTop: '80px' }}>
 
+                                    <div className="row justify-content-center">
+                                        {newsData.map((newsItem, index) => (
+                                            <div key={index} className="col-12">
+                                                <div className="card card shadow p-0 bg-white rounded justify-content-center w-100 mb-3"> {/* Adjusted card width to 100% */}
+                                                    <div className="card-body">
+                                                        <h6 style={{ textAlign: 'left' }}>{newsItem.category}</h6>
+                                                        <div className="row">
+                                                            <div className="col-md-8">
+                                                                <p className="card-text" style={{ textAlign: 'left' }}>{newsItem.header}</p>
+                                                            </div>
+                                                            <div className="col-md-4 d-flex justify-content-end">
+                                                                <Link to="/newsfeed">
+                                                                    <button
+                                                                        className="btn rounded-circle shadow-lg"
+                                                                        style={{
+                                                                            width: '60px',
+                                                                            height: '60px',
+                                                                            borderRadius: '60px'
+                                                                        }}
+                                                                    >
+                                                                        <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
+                                                                    </button>
+                                                                </Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                </div>
                             </div>
+
+
                         </div>
 
 
@@ -182,40 +217,7 @@ export default function Homescreen() {
                 </div>
             </div>
 
-            <div className="d-flex justify-content-center" style={{ paddingTop: '20px' }}>
-                <div className="container" style={{ width: '1240px' }}>
-                    <div className="row justify-content-center">
-                        {newsData.map((newsItem, index) => (
-                            <div key={index} className="col-12">
-                                <div className="card card shadow p-0 bg-white rounded justify-content-center w-100 mb-3"> {/* Adjusted card width to 100% */}
-                                    <div className="card-body">
-                                        <h6 style={{ textAlign: 'left' }}>{newsItem.category}</h6>
-                                        <div className="row">
-                                            <div className="col-md-8">
-                                                <p className="card-text" style={{ textAlign: 'left' }}>{newsItem.header}</p>
-                                            </div>
-                                            <div className="col-md-4 d-flex justify-content-end">
-                                                <Link to="/newsfeed">
-                                                    <button
-                                                        className="btn rounded-circle shadow-lg"
-                                                        style={{
-                                                            width: '60px',
-                                                            height: '60px',
-                                                            borderRadius: '60px'
-                                                        }}
-                                                    >
-                                                        <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
-                                                    </button>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+
 
 
 
