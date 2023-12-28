@@ -528,4 +528,30 @@ tbody tr:nth-child(even) {
   margin: 0 auto; 
 }
 
+.offcanvas-footer {
+  padding-Top: 100px; /* Adjust padding as needed */
+  text-align: center; /* Center the button */
+}
+
+.bill-container {
+  
+  padding: 10px;
+  width: 300px;
+  margin: 20px auto;
+  
+}
+
+.bill-details {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.bill-details p {
+  margin: 5px 0;
+}
+
+.offcanvas-footer {
+  text-align: center;
+}
+
 
