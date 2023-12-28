@@ -9,8 +9,8 @@ const userSchema = mongoose.Schema({
     phone: { type: String, require, default: null },
     isWaterEbill: { type: Boolean, default: false },
     isElecEbill: { type: Boolean, default: false },
-    watermNo: {type: String, require },
-    elecmNo: {type: String, require }
+    watermNo: { type: String, required: true, unique: true },
+    elecmNo: { type: String, required: true, unique: true }
 
 }, {
 
