@@ -189,7 +189,7 @@ function WaterUsersManage() {
       console.log(billData);
 
       try {
-        const response = await axios.post('/api/waterUsedr/', billData);
+        const response = await axios.post('/api/waterUser/', billData);
         console.log('Bill saved:', response.data);
 
         const Toast = Swal.mixin({
