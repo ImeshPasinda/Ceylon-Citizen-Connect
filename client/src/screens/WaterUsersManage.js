@@ -60,6 +60,8 @@ function WaterUsersManage() {
         <p><strong>Month:</strong> ${user.month}</p>
         <p><strong>Total Units:</strong> ${user.totalUnits}</p>
         <p><strong>Amount Per Month:</strong> ${user.amountpermonth}</p>
+        <p><strong>Reading Date:</strong> ${user.date}</p>
+
       `,
       showCloseButton: true,
     });
