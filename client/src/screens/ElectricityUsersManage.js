@@ -8,12 +8,10 @@ function ElectricityUsersManage() {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchUser, setSearchUser] = useState("");
 
- 
-
   useEffect(() => {
     // Fetch electricity users data from the server
     axios
-      .get("/api/electricityUser/")
+      .get("/api/electricityUser/")  // Adjusted endpoint
       .then((res) => {
         setUsers(res.data);
         setFilteredUsers(res.data);
@@ -25,8 +23,8 @@ function ElectricityUsersManage() {
 
   const columns = [
     {
-      name: "Username",
-      selector: (row) => row.username,
+      name: "Account Number",
+      selector: (row) => row.accountNo,
       sortable: true,
     },
     {
@@ -34,8 +32,8 @@ function ElectricityUsersManage() {
       selector: (row) => row.email,
     },
     {
-      name: "Electricity Meter Number",
-      selector: (row) => row.electricityMeterNumber,
+      name: "Month",
+      selector: (row) => row.month,
     },
     {
       name: "Actions",
@@ -44,9 +42,6 @@ function ElectricityUsersManage() {
           <button onClick={() => viewUserDetails(row)} className="btn">
             View
           </button>{" "}
-          {/* <button onClick={() => updateBill(row)} className="btn">
-            Update Bill
-          </button>{" "} */}
           <button onClick={() => deleteUser(row._id)} className="btn">
             Delete
           </button>
@@ -60,15 +55,16 @@ function ElectricityUsersManage() {
     Swal.fire({
       title: "User Details",
       html: `
-        <p><strong>Username:</strong> ${user.username}</p>
+        <p><strong>Account Number:</strong> ${user.accountNo}</p>
         <p><strong>Email:</strong> ${user.email}</p>
-        <p><strong>Electricity Meter Number:</strong> ${user.electricityMeterNumber}</p>
+        <p><strong>Month:</strong> ${user.month}</p>
+        <p><strong>Total Units:</strong> ${user.totalUnits}</p>
+        <p><strong>Monthly Electricity Bill:</strong> ${user.monthlyElecBill}</p>
       `,
       showCloseButton: true,
     });
   };
 
-  
   const deleteUser = (userId) => {
     // Display a confirmation dialog before deleting the user
     Swal.fire({
@@ -83,7 +79,7 @@ function ElectricityUsersManage() {
       if (result.isConfirmed) {
         // Perform the delete action using axios
         axios
-          .delete(`/api/electricityUser/${userId}`)
+          .delete(`/api/electricityUser/${userId}`)  // Adjusted endpoint
           .then((res) => {
             Swal.fire("Deleted!", "User has been deleted.", "success");
             // Update the user list after deletion
@@ -101,9 +97,9 @@ function ElectricityUsersManage() {
   useEffect(() => {
     const results = users.filter((user) => {
       return (
-        user.username.toLowerCase().includes(searchUser.toLowerCase()) ||
+        user.accountNo.toLowerCase().includes(searchUser.toLowerCase()) ||
         user.email.toLowerCase().includes(searchUser.toLowerCase()) ||
-        user.electricityMeterNumber.toLowerCase().includes(searchUser.toLowerCase())
+        user.month.toLowerCase().includes(searchUser.toLowerCase())
       );
     });
 
