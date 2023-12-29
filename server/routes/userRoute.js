@@ -288,4 +288,21 @@ router.put("/update/elecbill/:email", async (req, res) => {
   }
 });
 
+// Route to find a user by watermNo
+router.get('/find-by-watermNo/:watermNo', async (req, res) => {
+  try {
+    const { watermNo } = req.params;
+
+    const user = await User.findOne({ watermNo });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;

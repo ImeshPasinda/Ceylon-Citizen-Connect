@@ -259,7 +259,7 @@ export default function Newsfeedmanagement() {
           <DataTable
             title=<div style={{ paddingTop: "25px" }}>
               <h20>
-                Newsfeed Management <sup></sup>
+                Newsfeed Management
               </h20>
             </div>
             columns={columns}
