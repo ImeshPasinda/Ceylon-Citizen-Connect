@@ -48,8 +48,8 @@ router.post("/login", async (req, res) => {
       const currentUser = {
         name: user[0].name,
         email: user[0].email,
-        isVerified: user[0].isVerified,
-        notifications: user[0].notifications,
+        isWaterEbill: user[0].isWaterEbill,
+        isElecEbill: user[0].isElecEbill,
         _id: user[0]._id,
       };
       res.send(currentUser);
@@ -141,7 +141,6 @@ router.put("/update/email/:id", async (req, res) => {
   }
 });
 
-
 //customer management update function
 
 router.put("/update/customer/name/:id", async (req, res) => {
@@ -211,6 +210,98 @@ router.put("/update/customer/verification/:id", async (req, res) => {
     res.send("Customer verification Updated Successfully");
   } catch (error) {
     return res.status(400).json({ message: error });
+  }
+});
+
+// PUT route to update user by email for water e-bill purpose
+router.put("/update/webill/:email", async (req, res) => {
+  const { email } = req.params; // Get email from URL params
+  const { phone, isWaterEbill, address, watermNo } = req.body; // Get updated fields from request body
+
+  try {
+    // Find the user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update the user fields if they exist in the request body
+    if (phone) {
+      user.phone = phone;
+    }
+    if (isWaterEbill !== undefined) {
+      user.isWaterEbill = isWaterEbill;
+    }
+    if (address) {
+      user.address = address;
+    }
+    if (watermNo) {
+      user.watermNo = watermNo;
+    }
+
+    // Save the updated user
+    await user.save();
+
+    res.json({ message: "User updated successfully", user });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Failed to update user", error: err.message });
+  }
+});
+
+router.put("/update/elecbill/:email", async (req, res) => {
+  const { email } = req.params; // Get email from URL params
+  const { phone, isElecEbill, address, elecmNo } = req.body; // Get updated fields from request body
+
+  try {
+    // Find the user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update the user fields if they exist in the request body
+    if (phone) {
+      user.phone = phone;
+    }
+    if (isElecEbill !== undefined) {
+      user.isElecEbill = isElecEbill;
+    }
+    if (address) {
+      user.address = address;
+    }
+    if (elecmNo) {
+      user.elecmNo = elecmNo;
+    }
+
+    // Save the updated user
+    await user.save();
+
+    res.json({ message: "User updated successfully", user });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Failed to update user", error: err.message });
+  }
+});
+
+// Route to find a user by watermNo
+router.get('/find-by-watermNo/:watermNo', async (req, res) => {
+  try {
+    const { watermNo } = req.params;
+
+    const user = await User.findOne({ watermNo });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 

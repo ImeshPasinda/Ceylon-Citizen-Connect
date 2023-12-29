@@ -335,7 +335,7 @@ input {
 
 
 h10 {
-  font-family: 'Crushed', cursive;
+  font-family: 'Signika Negative', sans-serif;
   font-weight: bold;
   color: #081F3C;
 
@@ -519,4 +519,39 @@ tbody tr:nth-child(even) {
 .accordion-body {
   font-family: 'Signika Negative', sans-serif; /* Apply Signika Negative font to accordion body text */
 }
+
+.custom-container {
+  padding-top: 5%;
+  padding-right: 10%;
+  padding-left: 10%;
+  max-width: 1000px; 
+  margin: 0 auto; 
+}
+
+.offcanvas-footer {
+  padding-Top: 100px; /* Adjust padding as needed */
+  text-align: center; /* Center the button */
+}
+
+.bill-container {
+  
+  padding: 10px;
+  width: 300px;
+  margin: 20px auto;
+  
+}
+
+.bill-details {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.bill-details p {
+  margin: 5px 0;
+}
+
+.offcanvas-footer {
+  text-align: center;
+}
+
 

@@ -22,6 +22,12 @@ import JobPortalscreen from "./screens/JobPortalscreen";
 import JobportalManagementScreen from "./screens/JobportalManagementScreen";
 import JobApplicantsManagementScreen from "./screens/JobApplicantsManagementScreen";
 import JobApplyScreen from "./screens/JobApplyScreen";
+import PublicServiceManagement from "./screens/PublicServiceManagement";
+import WaterUsersManage from "./screens/WaterUsersManage";
+import ElectricityUsersManage from "./screens/ElectricityUsersManage";
+import Regwaterebillscreen from "./screens/Regwaterebillscreen";
+import RegElectricityebillscreen from "./screens/RegElectricityebillscreen";
+import WaterEbillScreen from "./screens/WaterEbillScreen";
 
 function App() {
   const userstate = useSelector((state) => state.loginUserReducer);
@@ -45,6 +51,9 @@ function App() {
           <Route path="/about" exact element={<AboutScreen />} />
           <Route path="/faq" exact element={<FAQScreen />} />
           <Route path="/newsfeed" exact element={<Newsfeedscreen />} />
+          <Route path="/regwaterebill" exact element={<Regwaterebillscreen />} />
+          <Route path="/regelecbill" exact element={<RegElectricityebillscreen />} />
+          <Route path="/waterebill" exact element={<WaterEbillScreen />} />
 
           {currentUser ? (
             <Route path="/feedback" exact element={<FeedbackScreen />} />
@@ -100,6 +109,36 @@ function App() {
               path="admin/jobApplicantManage"
               exact
               element={<JobApplicantsManagementScreen />}
+            />
+          ) : (
+            <Route path="/error" exact element={<Errorscreen />} />
+          )}
+
+          {currentAdmin ? (
+            <Route
+              path="admin/pubserviceManage"
+              exact
+              element={<PublicServiceManagement />}
+            />
+          ) : (
+            <Route path="/error" exact element={<Errorscreen />} />
+          )}
+
+          {currentAdmin ? (
+            <Route
+              path="admin/waterManage"
+              exact
+              element={<WaterUsersManage />}
+            />
+          ) : (
+            <Route path="/error" exact element={<Errorscreen />} />
+          )}
+
+          {currentAdmin ? (
+            <Route
+              path="admin/electricityManage"
+              exact
+              element={<ElectricityUsersManage />}
             />
           ) : (
             <Route path="/error" exact element={<Errorscreen />} />
