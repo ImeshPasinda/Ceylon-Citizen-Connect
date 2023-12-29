@@ -8,100 +8,23 @@ function WaterUsersManage() {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchUser, setSearchUser] = useState("");
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [waterMeterNumber, setWaterMeterNumber] = useState("");
-
   useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await axios.get("/api/waterUser/");
-        setUsers(response.data);
-        setFilteredUsers(response.data);
-      } catch (error) {
-        console.error("Error fetching water users:", error.message);
-      }
-    }
-
-    fetchUsers();
+    // Fetch water users data from the server
+    axios
+      .get("/api/waterUser/")  // Adjusted endpoint
+      .then((res) => {
+        setUsers(res.data);
+        setFilteredUsers(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }, []);
-
-  useEffect(() => {
-    const results = users.filter((user) => {
-      return (
-        user.username.toLowerCase().includes(searchUser.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchUser.toLowerCase())
-      );
-    });
-
-    setFilteredUsers(results);
-  }, [searchUser, users]);
-
-
-  const createUser = async () => {
-    try {
-      if (!username || !email || !password || !waterMeterNumber) {
-        Swal.fire("Error", "Please fill in all the required fields", "error");
-        return;
-      }
-
-      const newUser = {
-        username,
-        email,
-        password,
-        waterMeterNumber,
-      };
-
-      const response = await axios.post("/api/watersupplyusers", newUser);
-
-      Swal.fire("Success", "New user added successfully", "success");
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      setWaterMeterNumber("");
-
-      setUsers((prevUsers) => [...prevUsers, response.data]);
-    } catch (error) {
-      console.error("Error creating user:", error.message);
-    }
-  };
-
-  // Add other functions (createUser, deleteUser, updateUser) similar to the ones in your original code
-  const deleteUser = async (userId) => {
-    try {
-      await axios.delete(`/api/waterUser/${userId}`);
-
-      Swal.fire("Success", "User deleted successfully", "success");
-
-      setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
-    } catch (error) {
-      console.error("Error deleting user:", error.message);
-    }
-  };
-
-  const updateUser = async (userId, updatedUserData) => {
-    try {
-      const response = await axios.put(
-        `/api/waterUser/${userId}`,
-        updatedUserData
-      );
-
-      Swal.fire("Success", "User updated successfully", "success");
-
-      setUsers((prevUsers) =>
-        prevUsers.map((user) => (user._id === userId ? response.data : user))
-      );
-    } catch (error) {
-      console.error("Error updating user:", error.message);
-    }
-  };
-
 
   const columns = [
     {
-      name: "Username",
-      selector: (row) => row.username,
+      name: "Account Number",
+      selector: (row) => row.accountNo,
       sortable: true,
     },
     {
@@ -109,44 +32,87 @@ function WaterUsersManage() {
       selector: (row) => row.email,
     },
     {
-      name: "Water Meter Number",
-      selector: (row) => row.waterMeterNumber,
+      name: "Month",
+      selector: (row) => row.month,
     },
     {
       name: "Actions",
       cell: (row) => (
-        <>
-          <button
-            onClick={() =>
-              updateUser(row._id, {
-                /* updated data */
-              })
-            }
-            className="btn"
-            role="button"
-          >
-            Update
-          </button>
-          <button
-            onClick={() => deleteUser(row._id)}
-            className="btn"
-            role="button"
-          >
+        <div>
+          <button onClick={() => viewUserDetails(row)} className="btn">
+            View
+          </button>{" "}
+          <button onClick={() => deleteUser(row._id)} className="btn">
             Delete
           </button>
-        </>
+        </div>
       ),
     },
   ];
+
+  const viewUserDetails = (user) => {
+    // Display user details using a modal or a new page
+    Swal.fire({
+      title: "User Details",
+      html: `
+        <p><strong>Account Number:</strong> ${user.accountNo}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>Month:</strong> ${user.month}</p>
+        <p><strong>Total Units:</strong> ${user.totalUnits}</p>
+        <p><strong>Amount Per Month:</strong> ${user.amountpermonth}</p>
+      `,
+      showCloseButton: true,
+    });
+  };
+
+  const deleteUser = (userId) => {
+    // Display a confirmation dialog before deleting the user
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Perform the delete action using axios
+        axios
+          .delete(`/api/waterUser/${userId}`)  // Adjusted endpoint
+          .then((res) => {
+            Swal.fire("Deleted!", "User has been deleted.", "success");
+            // Update the user list after deletion
+            setUsers(users.filter((user) => user._id !== userId));
+          })
+          .catch((err) => {
+            console.log(err.message);
+            Swal.fire("Error", "Failed to delete user", "error");
+          });
+      }
+    });
+  };
+
+  // Filter users based on search input
+  useEffect(() => {
+    const results = users.filter((user) => {
+      return (
+        user.accountNo.toLowerCase().includes(searchUser.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchUser.toLowerCase()) ||
+        user.month.toLowerCase().includes(searchUser.toLowerCase())
+      );
+    });
+
+    setFilteredUsers(results);
+  }, [searchUser, users]);
+
   return (
     <div>
       <br />
       <br />
       <br />
-      <br />
-      <br />
       <div className="row justify-content-center">
-        <div className="col-md-9 m-3 p-0 ">
+        <div className="col-md-9 m-3 p-0">
           <DataTable
             title="Water Users Management"
             columns={columns}
@@ -167,8 +133,6 @@ function WaterUsersManage() {
               />
             }
           />
-          {/* Add other UI components similar to your original code */}
-          
         </div>
       </div>
     </div>
