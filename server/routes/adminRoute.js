@@ -5,11 +5,14 @@ const Admin = require("../models/adminModel")
 
 router.post("/login", async (req, res) => {
 
-    const { AdminEmail, AdminPassword } = req.body
+    let { AdminEmail, AdminPassword } = req.body;
+
+    // Convert email to lowercase
+    AdminEmail = AdminEmail.toLowerCase();
 
     try {
 
-        const admin = await Admin.find({ AdminEmail, AdminPassword })
+        const admin = await Admin.find({ AdminEmail, AdminPassword });
 
         if (admin.length > 0) {
 
@@ -18,13 +21,13 @@ router.post("/login", async (req, res) => {
                 AdminEmail: admin[0].AdminEmail,
                 isAdmin: admin[0].isAdmin,
                 _id: admin[0]._id
-            }
+            };
             res.send(currentAdmin);
 
         }
         else {
 
-            return res.status(400).json({ message: 'Adimin Login Failed' });
+            return res.status(400).json({ message: 'Admin Login Failed' });
 
         }
 
@@ -32,7 +35,8 @@ router.post("/login", async (req, res) => {
 
         return res.status(400).json({ message: 'Something went wrong' });
     }
-})
+});
+
 
 //register new admin
 router.post("/addAdmin", async (req, res) => {

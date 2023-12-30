@@ -19,13 +19,9 @@ export default function News({ news }) {
                 </div>
 
                 <div class="col-md-6 mb-4">
-                    <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3"><i class="fa fa-clock" aria-hidden="true"></i> {news.createdAt.substring(0, 10)}</span>
-                    <> </>
-                    <span
-                        className={`badge bg-${news.category === "News" ? "success" : "success"}`}
-                    >
-                        {news.category}
-                    </span>
+                    <div style={{ color: '#081F3C' }}><i class="fa fa-clock" aria-hidden="true"></i> {news.createdAt.substring(0, 10)}
+                        <> </>
+                        <i class="fa fa-bullhorn" aria-hidden="true"></i> {news.category}</div>
                     <br></br>
                     <h9 style={{ fontSize: "23px" }}>{news.header}</h9>
 

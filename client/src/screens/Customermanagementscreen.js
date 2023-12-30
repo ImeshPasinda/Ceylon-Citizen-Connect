@@ -562,7 +562,7 @@ function Customermanagementscreen() {
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content">
                             <div class="modal-header">
-                            <img src="https://static.wixstatic.com/media/618c8c_e709bfc77cc844ec89f41c021d154a04~mv2.png" alt="" width="80" height="50" class="d-inline-block align-text-top" />
+                            <img src="https://static.wixstatic.com/media/618c8c_b4938cfff8be43a6930076a53d590880~mv2.png" alt="" width="105" height="45" class="d-inline-block align-text-top" />
                             <h9 className="text-center m-4" style={{ fontSize: '15px' }}>Ceylon Citizen Connect Restaurants<br /></h9>
                             <h9 className="text-center m-4" style={{ fontSize: '15px' }}>No.100,Galle Road,Matara<br /></h9>
                             <h9 className="text-center m-4" style={{ fontSize: '15px' }}>Hotline :0777225900<br /></h9>
