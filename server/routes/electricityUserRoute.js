@@ -2,15 +2,14 @@ const express = require("express");
 const router = express.Router();
 const ElectricityBill = require("../models/electricityUserModel");
 
-// Create a new electricity bill entry
-router.post("/", async (req, res) => {
+// Post
+router.post('/', async (req, res) => {
   try {
-    const newElectricityBill = new ElectricityBill(req.body);
-    const savedElectricityBill = await newElectricityBill.save();
-    res.status(201).json(savedElectricityBill);
-    res.send("Electricity e-bill activation sent successfully");
+      const newUser = new ElectricityBill(req.body);
+      const savedUser = await newUser.save();
+      res.status(201).json(savedUser);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+      res.status(400).json({ error: error.message });
   }
 });
 

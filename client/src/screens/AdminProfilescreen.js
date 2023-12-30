@@ -97,7 +97,7 @@ export default function AdminProfilescreen() {
             <br />
             <br />
 
-            <a href="#" class="btn">
+            <a href="/admin/adminebillselection" class="btn">
               See More
             </a>
           </div>
