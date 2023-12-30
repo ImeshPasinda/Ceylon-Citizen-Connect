@@ -27,10 +27,10 @@ function JobPortalscreen() {
           <br />
           <br />
           <br />
-          <h1 style={{ color: "white" }}>
+          <h10 style={{  fontSize: "35px" ,color: "white" }}>
             Government Career Portal
             {/* <h1>Current Time: {time}</h1> */}
-          </h1>
+          </h10>
           <p style={{ fontSize: "14px", color: "white" }}>
             Government Job Vacancies & Gazzetes
           </p>
