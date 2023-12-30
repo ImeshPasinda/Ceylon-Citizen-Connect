@@ -2,23 +2,28 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/userModel");
 
-router.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
-
+router.post('/register', async (req, res) => {
   try {
-    const userExit = await User.findOne({ email });
+    const { watermNo, elecmNo, email, /* other fields */ } = req.body;
 
-    if (userExit) {
-      return res.status(400).json({ message: error });
-    } else {
-      const newUser = new User({ name, email, password });
-      newUser.save();
-      res.send("User Registered Successfully");
+    // Check uniqueness for non-null values
+    const existingUserWithWatermNo = await User.findOne({ watermNo: { $ne: null, $eq: watermNo } });
+    const existingUserWithElecmNo = await User.findOne({ elecmNo: { $ne: null, $eq: elecmNo } });
+    const existingUserWithEmail = await User.findOne({ email });
+
+    if (existingUserWithWatermNo || existingUserWithElecmNo || existingUserWithEmail) {
+      return res.status(400).json({ message: 'Duplicate field value found' });
     }
-  } catch (error) {
-    return res.status(400).json({ message: error });
+
+    // If uniqueness checks pass, create the user
+    const newUser = await User.create(req.body);
+    res.status(201).json(newUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
+
+
 
 router.post("/", async (req, res) => {
   const { name, email, password } = req.body;
