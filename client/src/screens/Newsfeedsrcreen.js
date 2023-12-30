@@ -71,7 +71,7 @@ export default function Newsfeedscreen() {
                     <br />
                     <br />
                     <br />
-                    <h10 style={{ fontSize: "45px", color: "white" }}>
+                    <h10 style={{ fontSize: "35px", color: "white" }}>
                         Newsfeed
                     
                     </h10>
