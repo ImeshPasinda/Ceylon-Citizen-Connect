@@ -153,9 +153,8 @@ export default function WaterEbillScreen() {
                         </div>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center" style={{ paddingTop: '20px' }}>
 
-                    <div className="row justify-content-center">
+                <div className="row justify-content-center" style={{ paddingTop: '20px' }}>
                         {waterbillData.map((waterbillItem, index) => (
                             <div key={index} className="col-12">
                                 <div className="card card shadow p-0 bg-white rounded justify-content-center w-100 mb-3"> {/* Adjusted card width to 100% */}
@@ -188,8 +187,10 @@ export default function WaterEbillScreen() {
                             </div>
                         ))}
                     </div>
-                </div>
             </div>
+
+
+
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasExampleLabel">
