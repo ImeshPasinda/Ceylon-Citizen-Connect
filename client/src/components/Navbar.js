@@ -62,7 +62,7 @@ export default function Navbar() {
                                     <ul class="dropdown-menu text-center" style={{ minWidth: '0rem ' }} aria-labelledby="dropdownMenuButton1">
 
                                         <li><a className="dropdown-item" href="/profile"><h9>Profile</h9></a></li>
-                                        <li><a className="dropdown-item" href="/waterebill"><h9>e-Bills</h9></a></li>
+                                        <li><a className="dropdown-item" href="/e-bills"><h9>e-Bills</h9></a></li>
                                         <li><a className="dropdown-item" href="#" onClick={() => { dispatch(logoutUser()) }}><li><h9>Logout</h9></li></a></li>
                                     </ul>
                                 </div>

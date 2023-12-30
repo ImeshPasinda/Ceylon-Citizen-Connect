@@ -35,7 +35,7 @@ export default function RegElectricityebillscreen() {
         return null;
     }
 
-    if (currentUser.isWaterEbill == true) {
+    if (currentUser.isElecEbill == true) {
         window.location.href = '/faq';
         return null;
     }
