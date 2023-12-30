@@ -92,19 +92,27 @@ export default function Homescreen() {
 
                                 <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
                                     <div class="card card shadow p-0 bg-white rounded justify-content-center" >
-                                        <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
+                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <br/>
+                                            <h5 class="card-title">Regsiter for Electricity e-Bill Service</h5>
+                                            <br/>
+                                            <p class="card-text text-muted">Sign up now for hassle-free e-billing! Enjoy the convenience of managing your electricity bills online with our easy and secure service. Register today for a seamless billing experience.</p>
                                         </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">An item</li>
-                                            <li class="list-group-item">A second item</li>
-                                            <li class="list-group-item">A third item</li>
-                                        </ul>
+                                       
                                         <div class="card-body">
-                                            <a href="#" class="card-link">Card link</a>
-                                            <a href="#" class="card-link">Another link</a>
+                                        <Link to="/regelecbill">
+                                                <button
+                                                    className="btn rounded-circle shadow-lg"
+                                                    style={{
+                                                        width: '60px',
+                                                        height: '60px',
+                                                        borderRadius: '60px'
+                                                    }}
+                                                >
+                                                    <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -112,40 +120,27 @@ export default function Homescreen() {
                                 <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
 
                                     <div class="card card shadow p-0 bg-white rounded justify-content-center" >
-                                        <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
+                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <br/>
+                                            <h5 class="card-title">Regsiter for Water e-Bill Service</h5>
+                                            <br/>
+                                            <p class="card-text text-muted">Streamline your water bill payments effortlessly! Join our convenient e-billing service for easy management of your water bills online. Register now to simplify your billing experience.</p>
                                         </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">An item</li>
-                                            <li class="list-group-item">A second item</li>
-                                            <li class="list-group-item">A third item</li>
-                                        </ul>
-                                        <div class="card-body">
-                                            <a href="#" class="card-link">Card link</a>
-                                            <a href="#" class="card-link">Another link</a>
-                                        </div>
-                                    </div>
 
-                                </div>
-
-                                <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
-
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
-                                        <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">An item</li>
-                                            <li class="list-group-item">A second item</li>
-                                            <li class="list-group-item">A third item</li>
-                                        </ul>
-                                        <div class="card-body">
-                                            <a href="#" class="card-link">Card link</a>
-                                            <a href="#" class="card-link">Another link</a>
+                                            <Link to="/regwaterebill">
+                                                <button
+                                                    className="btn rounded-circle shadow-lg"
+                                                    style={{
+                                                        width: '60px',
+                                                        height: '60px',
+                                                        borderRadius: '60px'
+                                                    }}
+                                                >
+                                                    <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
 
@@ -154,19 +149,56 @@ export default function Homescreen() {
                                 <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
 
                                     <div class="card card shadow p-0 bg-white rounded justify-content-center" >
-                                        <img src="https://i.abcnewsfe.com/a/3cb8ba6c-ccdb-48de-99cc-e684e5358708/abcnl__NEW_streamingnow_1664457649883_hpMain_16x9.jpg?w=608" class="card-img-top" alt="..." />
+                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <br/>
+                                            <h5 class="card-title">Government Job/Employement</h5>
+                                            <br/>
+                                            <p class="card-text text-muted">Welcome to our all-encompassing government job platform, where boundless opportunities await. Effortlessly navigate through an array of diverse roles meticulously tailored to match your passion.</p>
                                         </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">An item</li>
-                                            <li class="list-group-item">A second item</li>
-                                            <li class="list-group-item">A third item</li>
-                                        </ul>
+                                       
                                         <div class="card-body">
-                                            <a href="#" class="card-link">Card link</a>
-                                            <a href="#" class="card-link">Another link</a>
+                                        <Link to="/jobportal">
+                                                <button
+                                                    className="btn rounded-circle shadow-lg"
+                                                    style={{
+                                                        width: '60px',
+                                                        height: '60px',
+                                                        borderRadius: '60px'
+                                                    }}
+                                                >
+                                                    <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
+                                                </button>
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
+
+                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
+                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
+                                        <div class="card-body">
+                                        <br/>
+                                            <h5 class="card-title">Citizen Feedbacks & Concerns</h5>
+                                            <br/>
+                                            <p class="card-text text-muted">Voice your feedback and find opportunities! Explore government job openings and share your concerns. Your voice matters in shaping a better employment landscape.</p>
+                                        </div>
+                                       
+                                        <div class="card-body">
+                                        <Link to="/feedback">
+                                                <button
+                                                    className="btn rounded-circle shadow-lg"
+                                                    style={{
+                                                        width: '60px',
+                                                        height: '60px',
+                                                        borderRadius: '60px'
+                                                    }}
+                                                >
+                                                    <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

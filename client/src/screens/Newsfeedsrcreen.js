@@ -71,11 +71,11 @@ export default function Newsfeedscreen() {
                     <br />
                     <br />
                     <br />
-                    <h10 style={{ fontSize: "45px", color: "white" }}>
-                        News & Events
+                    <h10 style={{ fontSize: "35px", color: "white" }}>
+                        Newsfeed
                     
                     </h10>
-                    <p style={{ fontSize: "12px", color: "white", fontFamily: "Mukta, calibri", fontStyle: "italic" }}>Sub Text</p>
+                    <p style={{ fontSize: "12px", color: "white", fontFamily: "Mukta, calibri", fontStyle: "italic" }}>Government Announcements</p>
                     <br />
                 </div>
             </div>

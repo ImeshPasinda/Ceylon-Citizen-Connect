@@ -28,6 +28,9 @@ import ElectricityUsersManage from "./screens/ElectricityUsersManage";
 import Regwaterebillscreen from "./screens/Regwaterebillscreen";
 import RegElectricityebillscreen from "./screens/RegElectricityebillscreen";
 import WaterEbillScreen from "./screens/WaterEbillScreen";
+import EbillSelectionAdminScreen from "./screens/EbillSelectionAdminScreen";
+import EbillSelectionScreen from "./screens/EbillSelectionScreen";
+import ElectricityEbillScreen from "./screens/ElectricityEbillScreen";
 
 function App() {
   const userstate = useSelector((state) => state.loginUserReducer);
@@ -53,7 +56,10 @@ function App() {
           <Route path="/newsfeed" exact element={<Newsfeedscreen />} />
           <Route path="/regwaterebill" exact element={<Regwaterebillscreen />} />
           <Route path="/regelecbill" exact element={<RegElectricityebillscreen />} />
-          <Route path="/waterebill" exact element={<WaterEbillScreen />} />
+          <Route path="/e-bills/electricityebill" exact element={<ElectricityEbillScreen />} />
+          <Route path="/e-bills/waterebill" exact element={<WaterEbillScreen />} />
+          <Route path="/e-bills" exact element={<EbillSelectionScreen />} />
+          
 
           {currentUser ? (
             <Route path="/feedback" exact element={<FeedbackScreen />} />
@@ -143,6 +149,16 @@ function App() {
           ) : (
             <Route path="/error" exact element={<Errorscreen />} />
           )}
+          {currentAdmin ? (
+            <Route
+              path="admin/adminebillselection"
+              exact
+              element={<EbillSelectionAdminScreen />}
+            />
+          ) : (
+            <Route path="/error" exact element={<Errorscreen />} />
+          )}
+         
         </Routes>
       </BrowserRouter>
       <Footer />

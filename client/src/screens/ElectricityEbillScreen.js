@@ -4,7 +4,7 @@ import axios from 'axios';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
-export default function WaterEbillScreen() {
+export default function ElectricityEbillScreen() {
 
     const userstate = useSelector(state => state.loginUserReducer);
     const { currentUser } = userstate;
@@ -45,24 +45,24 @@ export default function WaterEbillScreen() {
     };
 
 
-    const [waterbillData, setWaterbillData] = useState([]);
-    const [firstWaterbill, setFirstWaterbill] = useState(null); // Initialize with null or appropriate initial value
+    const [ElectricitybillData, setElectricitybillData] = useState([]);
+    const [firstElectricitybill, setFirstElectricitybill] = useState(null); // Initialize with null or appropriate initial value
 
     useEffect(() => {
-        axios.get(`/api/waterUser/waterbills/${currentUser.email}`)
+        axios.get(`/api/electricityUser/elecbills/${currentUser.email}`)
             .then(response => {
                 // Assuming 'createdAt' is the field you want to sort by
                 const sortedData = response.data.sort((a, b) => {
                     // Change 'createdAt' to the field you want to sort by
                     return new Date(b.createdAt) - new Date(a.createdAt);
                 });
-
-                setWaterbillData(sortedData);
+                
+                setElectricitybillData(sortedData);
 
                 // Save the first document to another variable if sortedData has items
                 if (sortedData.length > 0) {
                     const firstDocument = sortedData[0];
-                    setFirstWaterbill(firstDocument);
+                    setFirstElectricitybill(firstDocument);
                 }
             })
             .catch(error => {
@@ -94,7 +94,7 @@ export default function WaterEbillScreen() {
 
             // Customize text styles and positioning
             pdf.setFontSize(14);
-            pdf.text(`Water Bill for ${month} - ${date} `, 200, 65);
+            pdf.text(`Electricity Bill for ${month} - ${date} `, 200, 65);
 
             // Convert HTML to canvas using html2canvas
             html2canvas(document.querySelector("#billDetails")).then(canvas => {
@@ -104,7 +104,7 @@ export default function WaterEbillScreen() {
                 pdf.addImage(imgData, 'PNG', 40, 120);
 
                 // Saving the PDF file
-                pdf.save(`water_bill_${month}_${date}.pdf`);
+                pdf.save(`Electricity_bill_${month}_${date}.pdf`);
             });
         }
     };
@@ -119,11 +119,11 @@ export default function WaterEbillScreen() {
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/" style={{ textDecoration: 'none' }}>Home</a></li>
                         <li class="breadcrumb-item"><a href="/e-bills" style={{ textDecoration: 'none' }}>e-Bills</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Water Bill</li>
+                        <li class="breadcrumb-item active" aria-current="page">Electricity Bill</li>
                     </ol>
                 </nav>
                 <div className="alert alert-warning" role="alert">
-                    Hi, {currentUser.name}, your next water billing date is {nextBillDate}.
+                    Hi, {currentUser.name}, your next Electricity billing date is {nextBillDate}.
                 </div>
                 <div class="row" style={{ paddingTop: '30px' }}>
                     <div class="col">
@@ -140,8 +140,8 @@ export default function WaterEbillScreen() {
                             <div className="card-body">
                                 <h6 style={{ textAlign: 'left' }}>Last Payment</h6>
                                 <h10 className="card-text" style={{ textAlign: 'left', fontSize: '35px' }}>
-                                    Rs. {firstWaterbill ? (
-                                        <span>{firstWaterbill.amountpermonth}</span>
+                                    Rs. {firstElectricitybill ? (
+                                        <span>{firstElectricitybill.amountpermonth}</span>
                                     ) : (
                                         <span>0.00</span>
                                     )}
@@ -153,18 +153,17 @@ export default function WaterEbillScreen() {
                         </div>
                     </div>
                 </div>
-
                 <div className="row justify-content-center" style={{ paddingTop: '20px' }}>
-                        {waterbillData.map((waterbillItem, index) => (
+                        {ElectricitybillData.map((ElectricitybillItem, index) => (
                             <div key={index} className="col-12">
                                 <div className="card card shadow p-0 bg-white rounded justify-content-center w-100 mb-3"> {/* Adjusted card width to 100% */}
                                     <div className="card-body">
-                                        <h6 style={{ textAlign: 'left' }}>{waterbillItem.month}</h6>
+                                        <h6 style={{ textAlign: 'left' }}>{ElectricitybillItem.month}</h6>
                                         <div className="row">
                                             <div className="col-md-8">
 
-                                                <p className="card-text" style={{ textAlign: 'left', fontSize: '25px', color: 'green' }}>+Rs. {waterbillItem.amountpermonth}</p>
-                                                <p className="card-text" style={{ textAlign: 'left' }}>Billing Date : {waterbillItem.date}</p>
+                                                <p className="card-text" style={{ textAlign: 'left', fontSize: '25px', color: 'green' }}>+Rs. {ElectricitybillItem.amountpermonth}</p>
+                                                <p className="card-text" style={{ textAlign: 'left' }}>Billing Date : {ElectricitybillItem.date}</p>
 
                                             </div>
                                             <div className="col-md-4 d-flex justify-content-end">
@@ -176,7 +175,7 @@ export default function WaterEbillScreen() {
                                                         borderRadius: '60px'
                                                     }}
                                                     data-bs-toggle="offcanvas" href="#offcanvasExample"
-                                                    onClick={() => handleShowDetails(waterbillItem)} // Pass the current month's data
+                                                    onClick={() => handleShowDetails(ElectricitybillItem)} // Pass the current month's data
                                                 >
                                                     <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
                                                 </button>

@@ -76,12 +76,12 @@ function WaterUsersManage() {
             toast.addEventListener('mouseleave', Swal.resumeTimer);
           }
         });
-  
+
         Toast.fire({
           icon: 'success',
           title: 'E-Bill has been deleted successfully!'
         });
-  
+
         setTimeout(function () {
           window.location.reload('/admin/waterManage');
         }, 1500);
@@ -95,18 +95,18 @@ function WaterUsersManage() {
           timer: 3000,
           timerProgressBar: true,
           didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
           }
-      })
+        })
 
-      Toast.fire({
+        Toast.fire({
           icon: 'error',
           title: 'E-Bill has been deleted Unsuccessfully!'
-      })
+        })
       });
   };
-  
+
 
   // Filter users based on search input
   useEffect(() => {
@@ -199,20 +199,20 @@ function WaterUsersManage() {
           timer: 1500,
           timerProgressBar: true,
           didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
           }
-      })
+        })
 
-      Toast.fire({
+        Toast.fire({
           icon: 'success',
           title: 'Bill Genarating Successfully!'
-      })
-     
-      setTimeout(function () {
+        })
+
+        setTimeout(function () {
           window.location.reload('/admin/waterManage');
-      }, 1500);
-        
+        }, 1500);
+
         setFormData({
           month: '',
           date: '',
@@ -227,20 +227,20 @@ function WaterUsersManage() {
           timer: 3000,
           timerProgressBar: true,
           didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
           }
-      })
+        })
 
-      Toast.fire({
+        Toast.fire({
           icon: 'error',
           title: 'Bill Genarating Unsuccessfully!'
-      })
+        })
         console.error('Error saving bill:', error.message);
-      
+
       }
     } else {
-  
+
       console.log('Please fill in all required fields.');
     }
   };
@@ -281,8 +281,9 @@ function WaterUsersManage() {
               />
             }
           />
-
-          <div className="modal-footer" style={{ paddingTop: '20px' }}>
+          <br />
+          <br />
+          <div className="modal-footer">
             <button
               class="btn"
               data-bs-target="#addbill"
@@ -293,7 +294,7 @@ function WaterUsersManage() {
                 class="fa-solid fa-plus fa-beat"
                 style={{ color: "white" }}
               ></i>{" "}
-              Add News & Events
+              Add New Bill Info
             </button>
             <div className="p-1">
               <button
@@ -306,8 +307,8 @@ function WaterUsersManage() {
                   style={{ fontSize: "15px", color: "white" }}
                   class="fa fa-file"
                   aria-hidden="true"
-                ></i>{" "}
-                Generate Newsfeed Report
+                ></i> <> </>
+                Generate Report
               </button>
             </div>
           </div>

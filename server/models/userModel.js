@@ -2,21 +2,28 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
 
-    name: { type: String, require },
-    email: { type: String, require },
-    password: { type: String, require },
-    address: { type: String, require, default: null },
-    phone: { type: String, require, default: null },
-    isWaterEbill: { type: Boolean, default: false },
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    address: { type: String, default: null },
+    phone: { type: String, default: null },
+    isWaterEbill: { type: Boolean, default: false, },
     isElecEbill: { type: Boolean, default: false },
-    watermNo: { type: String, required: true, unique: true },
-    elecmNo: { type: String, required: true, unique: true }
+    watermNo: { type: String, default: null },
+    elecmNo: { type: String,default: null },
 
 }, {
 
     timestamps: true,
 
-})
+});
+
+userSchema.pre('save', function (next) {
+    if (this.email) {
+        this.email = this.email.toLowerCase();
+    }
+    next();
+});
 
 const User = mongoose.model('users', userSchema)
 
