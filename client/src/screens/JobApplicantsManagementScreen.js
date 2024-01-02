@@ -23,7 +23,7 @@ function JobApplicantsManagementScreen() {
   useEffect(() => {
     function getJobs() {
       axios
-        .get("/api/jobapply/")
+        .get("https://ccc-backend.onrender.com/api/jobapply/")
         .then((res) => {
           setApplicants(res.data);
 

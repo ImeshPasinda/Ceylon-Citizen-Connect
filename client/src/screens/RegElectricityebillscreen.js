@@ -20,7 +20,7 @@ export default function RegElectricityebillscreen() {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`/api/users/update/elecbill/${currentUser.email}`, {
+            const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/elecbill/${currentUser.email}`, {
                 phone,
                 isElecEbill: true,
                 address,

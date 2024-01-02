@@ -93,7 +93,7 @@ function Customermanagementscreen() {
         function getUsers() {
 
             //get all users from database
-            axios.get("/api/users/getAllusers").then((res) => {
+            axios.get("https://ccc-backend.onrender.com/api/users/getAllusers").then((res) => {
                 setUsers(res.data);
                 // console.log(res.data)
 
@@ -327,7 +327,7 @@ function Customermanagementscreen() {
         function getAdmins() {
 
             //get all users from database
-            axios.get("/api/admins/getalladmins").then((res) => {
+            axios.get("https://ccc-backend.onrender.com/api/admins/getalladmins").then((res) => {
                 setAdmins(res.data);
                 console.log(res.data)
 

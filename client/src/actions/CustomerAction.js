@@ -7,7 +7,7 @@ export const deleteCustomerAction = (userId) => async dispatch => {
 
 
     try {
-        const response = await axios.delete(`/api/users/delete/customer/${userId}`)
+        const response = await axios.delete(`https://ccc-backend.onrender.com/api/users/delete/customer/${userId}`)
 
         const Toast = Swal.mixin({
             toast: true,
@@ -69,7 +69,7 @@ export const updateCustomerName = (updatecustomername, userId) => async dispatch
     dispatch({ type: 'UPDATE_USER_NAME_REQUEST' })
 
     try {
-        const response = await axios.put(`/api/users/update/customer/name/${userId}`, updatecustomername)
+        const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/customer/name/${userId}`, updatecustomername)
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -126,7 +126,7 @@ export const updateCustomerEmail = (updatecustomeremail, userId) => async dispat
 
 
     try {
-        const response = await axios.put(`/api/users/update/customer/email/${userId}`, updatecustomeremail)
+        const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/customer/email/${userId}`, updatecustomeremail)
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -181,7 +181,7 @@ export const updateCustomerPassword = (updatecustomerpassword, userId) => async 
     dispatch({ type: 'UPDATE_CUSTOMER_PASSWORD_REQUEST' })
 
     try {
-        const response = await axios.put(`/api/users/update/customer/password/${userId}`, updatecustomerpassword)
+        const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/customer/password/${userId}`, updatecustomerpassword)
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -237,7 +237,7 @@ export const updateCustomerVerification = (updatecustomerverification, userId, v
 
 
         try {
-            const response = await axios.put(`/api/users/update/customer/verification/${userId}`, updatecustomerverification)
+            const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/customer/verification/${userId}`, updatecustomerverification)
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -288,7 +288,7 @@ export const updateCustomerVerification = (updatecustomerverification, userId, v
     } else {
 
         try {
-            const response = await axios.put(`/api/users/update/customer/verification/${userId}`, updatecustomerverification)
+            const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/customer/verification/${userId}`, updatecustomerverification)
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -345,7 +345,7 @@ export const addUser = (user) => async dispatch => {
     dispatch({ type: 'CUSTOMER_ADDED_REQUEST' })
 
     try {
-        const response = await axios.post('/api/users/addcustomer', user)
+        const response = await axios.post('https://ccc-backend.onrender.com/api/users/addcustomer', user)
         console.log(response);
 
         

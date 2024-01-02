@@ -18,7 +18,7 @@ function PublicServiceManagement() {
     // Fetch all services from the server when the component mounts
     async function fetchServices() {
       try {
-        const response = await axios.get("/api/publicservice");
+        const response = await axios.get("https://ccc-backend.onrender.com/api/publicservice");
         setServices(response.data);
         setFilteredServices(response.data);
       } catch (error) {
@@ -67,7 +67,7 @@ function PublicServiceManagement() {
       };
 
       // Add the new service to the database
-      const response = await axios.post("/api/publicservice", newService);
+      const response = await axios.post("https://ccc-backend.onrender.com/api/publicservice", newService);
 
       // Show success message and reset the input fields
       Swal.fire("Success", "New service added successfully", "success");
@@ -87,7 +87,7 @@ function PublicServiceManagement() {
   const deleteService = async (serviceId) => {
     try {
       // Delete the service from the database
-      await axios.delete(`/api/publicservice/${serviceId}`);
+      await axios.delete(`https://ccc-backend.onrender.com/api/publicservice/${serviceId}`);
 
       // Show success message
       Swal.fire("Success", "Service deleted successfully", "success");
