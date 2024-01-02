@@ -10,7 +10,7 @@ export default function Homescreen() {
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
-        axios.get('/api/newsfeed/getallnews')
+        axios.get('https://ccc-backend.onrender.com/api/newsfeed/getallnews')
             .then(response => {
                 // Assuming the response data is an array of news items
                 setNewsData(response.data);

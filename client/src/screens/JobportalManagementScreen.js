@@ -80,7 +80,7 @@ function JobportalManagementScreen() {
 
   //     function getJobs() {
 
-  //         axios.get("/api/jobportal/getalljobs").then((res) => {
+  //         axios.get("https://ccc-backend.onrender.com/api/jobportal/getalljobs").then((res) => {
   //             setJobs(res.data);
   //             console.log(res.data)
 
@@ -103,7 +103,7 @@ function JobportalManagementScreen() {
   useEffect(() => {
     function getJobs() {
       axios
-        .get("/api/jobportal/")
+        .get("https://ccc-backend.onrender.com/api/jobportal/")
         .then((res) => {
           setJobs(res.data);
 
@@ -141,7 +141,7 @@ function JobportalManagementScreen() {
 
   function jobdetails(JobId) {
     axios
-      .get("/api/jobportal/")
+      .get("https://ccc-backend.onrender.com/api/jobportal/")
       .then((res) => {
         setJobs(res.data);
         console.log(JobId);
@@ -165,7 +165,7 @@ function JobportalManagementScreen() {
 
   function getCurrentJobs(jobId) {
     axios
-      .get(`/api/jobportal/${jobId}`)
+      .get(`https://ccc-backend.onrender.com/api/jobportal/${jobId}`)
       .then((res) => {
         setJobs(res.data);
         jobs = res.data;

@@ -16,7 +16,7 @@ function ElectricityUsersManage() {
   useEffect(() => {
     // Fetch electricity users data from the server
     axios
-      .get("/api/electricityUser/")  // Adjusted endpoint
+      .get("https://ccc-backend.onrender.com/api/electricityUser/")  // Adjusted endpoint
       .then((res) => {
         setUsers(res.data);
         setFilteredUsers(res.data);
@@ -63,7 +63,7 @@ function ElectricityUsersManage() {
   const deleteUser = (userId) => {
     // Display a confirmation dialog before deleting the user
     axios
-      .delete(`/api/electricityUser/${userId}`) // Adjusted endpoint
+      .delete(`https://ccc-backend.onrender.com/api/electricityUser/${userId}`) // Adjusted endpoint
       .then((res) => {
         const Toast = Swal.mixin({
           toast: true,
@@ -129,7 +129,7 @@ function ElectricityUsersManage() {
     // Simulate a delay of 1.5 seconds for the loading spinner
     setTimeout(async () => {
       try {
-        const response = await axios.get(`/api/users/find-by-elecmNo/${searchUserByelecmNo}`);
+        const response = await axios.get(`https://ccc-backend.onrender.com/api/users/find-by-elecmNo/${searchUserByelecmNo}`);
         if (response.data) {
           setSelectedUser(response.data);
           setNotFound(false);
@@ -189,7 +189,7 @@ function ElectricityUsersManage() {
       console.log(billData);
 
       try {
-        const response = await axios.post('/api/electricityUser/', billData);
+        const response = await axios.post('https://ccc-backend.onrender.com/api/electricityUser/', billData);
         console.log('Bill saved:', response.data);
 
         const Toast = Swal.mixin({

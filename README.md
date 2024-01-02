@@ -54,6 +54,11 @@ To run the client and server:
     ```
 Access the application locally by visiting `http://localhost:3000` in your web browser.
 
+### Live Site
+
+- **Frontend:** Deployed on [Netlify.com] [Ceylone Citizen Connect Frontend](https://ceylon-citizen-connect.netlify.app/)
+- **Backend:** Deployed on [Render.com] [Ceylone Citizen Connect Backend](https://ccc-backend.onrender.com/)
+
 ## Environment Variables
 
 Create a `.env` file in the root directory of the project and add the following variables:

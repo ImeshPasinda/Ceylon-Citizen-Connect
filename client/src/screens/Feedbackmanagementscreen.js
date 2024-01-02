@@ -29,7 +29,7 @@ function Feedbackmanagementscreen() {
   useEffect(() => {
     function getFeedbacks() {
       axios
-        .get("/api/feedback/")
+        .get("https://ccc-backend.onrender.com/api/feedback/")
         .then((res) => {
           setUsers(res.data);
           setFilterdUsers(res.data);
@@ -47,7 +47,7 @@ function Feedbackmanagementscreen() {
   }, []);
 
   axios
-    .get("/api/users/")
+    .get("https://ccc-backend.onrender.com/api/users/")
     .then((res) => {
       setUsersforfeedback(res.data);
       // console.log(res.data)
@@ -60,7 +60,7 @@ function Feedbackmanagementscreen() {
 
   function feedbacks(userId) {
     axios
-      .get("/api/feedback/")
+      .get("https://ccc-backend.onrender.com/api/feedback/")
       .then((res) => {
         setUsers(res.data);
         console.log(res.data);

@@ -9,7 +9,7 @@ export const getAllNews = () => async dispatch => {
 
     try {
 
-        const response = await axios.get('/api/newsfeed/getallnews')
+        const response = await axios.get('https://ccc-backend.onrender.com/api/newsfeed/getallnews')
         console.log(response)
         dispatch({ type: 'GET_NEWS_SUCCESS', payload : response.data })
 
@@ -26,7 +26,7 @@ export const createNewsAction = (newNews) => async dispatch => {
     dispatch({ type: 'USER_NEWS_SENDING' })
 
     try {
-        const response = await axios.post('/api/newsfeed/post/news',newNews )
+        const response = await axios.post('https://ccc-backend.onrender.com/api/newsfeed/post/news',newNews )
        
         const Toast = Swal.mixin({
             toast: true,
@@ -80,7 +80,7 @@ export const updateNewsAction = (updatenews, id) => async dispatch => {
 
     try {
     
-        const response = await axios.put(`/api/newsfeed/update/news/${id}`, updatenews)
+        const response = await axios.put(`https://ccc-backend.onrender.com/api/newsfeed/update/news/${id}`, updatenews)
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -136,7 +136,7 @@ export const deleteNewsAction = (newsId) => async dispatch => {
 
 
     try {
-        const response = await axios.delete(`/api/newsfeed/delete/news/${newsId}`)
+        const response = await axios.delete(`https://ccc-backend.onrender.com/api/newsfeed/delete/news/${newsId}`)
 
         const Toast = Swal.mixin({
             toast: true,

@@ -5,7 +5,7 @@ export const getAllJobs = () => async (dispatch) => {
   dispatch({ type: "GET_JOBS_REQUEST" });
 
   try {
-    const response = await axios.get("/api/jobportal/");
+    const response = await axios.get("https://ccc-backend.onrender.com/api/jobportal/");
     console.log(response);
     dispatch({ type: "GET_JOBS_SUCCESS", payload: response.data });
   } catch (error) {
@@ -17,7 +17,7 @@ export const deleteJobAction = (JobID) => async (dispatch) => {
   dispatch({ type: "JOB_DELETE_REQUEST" });
 
   try {
-    const response = await axios.delete(`/api/jobportal/${JobID}`);
+    const response = await axios.delete(`https://ccc-backend.onrender.com/api/jobportal/${JobID}`);
 
     const Toast = Swal.mixin({
       toast: true,
@@ -69,7 +69,7 @@ export const addJob = (job) => async (dispatch) => {
   dispatch({ type: "JOB_ADDED_REQUEST" });
 
   try {
-    const response = await axios.post("/api/jobportal/", job);
+    const response = await axios.post("https://ccc-backend.onrender.com/api/jobportal/", job);
     console.log(response);
 
     const Toast = Swal.mixin({
@@ -123,7 +123,7 @@ export const updateJobsAction = (updatejobs, id) => async (dispatch) => {
 
   try {
     const response = await axios.put(
-      `/api/jobportal/${id}`,
+      `https://ccc-backend.onrender.com/api/jobportal/${id}`,
       updatejobs
     );
     const Toast = Swal.mixin({
