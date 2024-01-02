@@ -20,7 +20,7 @@ export default function Regwaterebillscreen() {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`/api/users/update/webill/${currentUser.email}`, {
+            const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/webill/${currentUser.email}`, {
                 phone,
                 isWaterEbill: true,
                 address,

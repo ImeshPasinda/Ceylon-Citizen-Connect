@@ -49,7 +49,7 @@ export default function WaterEbillScreen() {
     const [firstWaterbill, setFirstWaterbill] = useState(null); // Initialize with null or appropriate initial value
 
     useEffect(() => {
-        axios.get(`/api/waterUser/waterbills/${currentUser.email}`)
+        axios.get(`https://ccc-backend.onrender.com/api/waterUser/waterbills/${currentUser.email}`)
             .then(response => {
                 // Assuming 'createdAt' is the field you want to sort by
                 const sortedData = response.data.sort((a, b) => {

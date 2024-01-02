@@ -49,7 +49,7 @@ export default function ElectricityEbillScreen() {
     const [firstElectricitybill, setFirstElectricitybill] = useState(null); // Initialize with null or appropriate initial value
 
     useEffect(() => {
-        axios.get(`/api/electricityUser/elecbills/${currentUser.email}`)
+        axios.get(`https://ccc-backend.onrender.com/api/electricityUser/elecbills/${currentUser.email}`)
             .then(response => {
                 // Assuming 'createdAt' is the field you want to sort by
                 const sortedData = response.data.sort((a, b) => {

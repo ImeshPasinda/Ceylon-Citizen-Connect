@@ -7,7 +7,7 @@ export const loginAdmin = (admin) => async dispatch => {
     dispatch({ type: 'ADMIN_LOGIN_REQUEST' })
 
     try {
-        const response = await axios.post('/api/admins/login', admin)
+        const response = await axios.post('https://ccc-backend.onrender.com/api/admins/login', admin)
         console.log(response);
         dispatch({ type: 'ADMIN_LOGIN_SUCCESS', payload: response.data })
         localStorage.setItem('currentAdmin', JSON.stringify(response.data))
@@ -32,7 +32,7 @@ export const addAdmin = (admin) => async dispatch => {
     dispatch({ type: 'ADMIN_ADDED_REQUEST' })
 
     try {
-        const response = await axios.post('/api/admins/addAdmin', admin)
+        const response = await axios.post('https://ccc-backend.onrender.com/api/admins/addAdmin', admin)
         console.log(response);
 
         
@@ -94,7 +94,7 @@ export const deleteAdminAction = (adminID) => async dispatch => {
 
 
     try {
-        const response = await axios.delete(`/api/admins/delete/admin/${adminID}`)
+        const response = await axios.delete(`https://ccc-backend.onrender.com/api/admins/delete/admin/${adminID}`)
 
         const Toast = Swal.mixin({
             toast: true,
