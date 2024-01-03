@@ -2,5 +2,11 @@
 {
   "dependencies": {
     "react-scripts": "^5.0.1"
+  },
+  "scripts": {
+    "start": "cd client && react-scripts start",
+    "build": "cd client && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   }
 }
