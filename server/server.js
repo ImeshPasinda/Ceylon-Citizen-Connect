@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+require('dotenv').config();
 
 const app = express();
 const db = require('./db')
@@ -10,6 +10,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+const cronConfig = {
+    sampleAdminData: '*/5 * * * *', 
+    timezone: 'Asia/Kolkata'
+  };
+
+module.exports = { cronConfig };
 
 
 const userRoute = require('./routes/userRoute')
@@ -39,6 +45,6 @@ app.get("/", (req, res) => {
 });
 
 
-const port = process.env.PORT || 8070;
+const port = process.env.PORT;
 
 app.listen(port, () => `Server is up and running on port number: ${port}`);

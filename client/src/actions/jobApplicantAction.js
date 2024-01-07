@@ -1,5 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import { baseURL } from '../apiConfig';
 
 export const getallApplications = () => async dispatch => {
 
@@ -8,7 +9,7 @@ export const getallApplications = () => async dispatch => {
 
     try {
 
-        const response = await axios.get('https://ccc-backend.onrender.com/api/jobapply/getallApplications')
+        const response = await axios.get(`${baseURL}/api/jobapply/getallApplications`)
         console.log(response)
         dispatch({ type: 'GET_APPLICATIONS_SUCCESS', payload: response.data })
 
@@ -25,7 +26,7 @@ export const JobApplication = (newApplicant) => async (dispatch) => {
     dispatch({ type: 'JOB_APPLICATION_SENDING' });
 
     try {
-        const response = await axios.post('https://ccc-backend.onrender.com/api/jobapply/', newApplicant);
+        const response = await axios.post(`${baseURL}/api/jobapply/`, newApplicant);
 
         console.log(response);
         dispatch({ type: 'JOB_APPLICATION_SUCCESS' });
@@ -51,7 +52,7 @@ export const deleteApplicantAction = (ApplicantID) => async dispatch => {
 
 
     try {
-        const response = await axios.delete(`https://ccc-backend.onrender.com/api/jobapply/${ApplicantID}`)
+        const response = await axios.delete(`${baseURL}/api/jobapply/${ApplicantID}`)
 
         const Toast = Swal.mixin({
             toast: true,

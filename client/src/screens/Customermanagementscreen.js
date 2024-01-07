@@ -7,10 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { deleteCustomerAction, addUser } from '../actions/CustomerAction';
 import { addAdmin, deleteAdminAction } from '../actions/adminActions';
 import { updateCustomerName, updateCustomerEmail, updateCustomerPassword, updateCustomerVerification } from '../actions/CustomerAction';
-
-import Loading from "../components/Loading"
-import Success from "../components/Success"
-import Error from "../components/Error"
+import { baseURL } from '../apiConfig';
 
 
 
@@ -93,7 +90,7 @@ function Customermanagementscreen() {
         function getUsers() {
 
             //get all users from database
-            axios.get("https://ccc-backend.onrender.com/api/users/getAllusers").then((res) => {
+            axios.get(`${baseURL}/api/users/getAllusers`).then((res) => {
                 setUsers(res.data);
                 // console.log(res.data)
 
@@ -327,7 +324,7 @@ function Customermanagementscreen() {
         function getAdmins() {
 
             //get all users from database
-            axios.get("https://ccc-backend.onrender.com/api/admins/getalladmins").then((res) => {
+            axios.get(`${baseURL}/api/admins/getalladmins`).then((res) => {
                 setAdmins(res.data);
                 console.log(res.data)
 

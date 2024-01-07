@@ -1,11 +1,12 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import { baseURL } from '../apiConfig';
 
 export const UserFeedBack = (newFeedback) => async (dispatch) => {
   dispatch({ type: "USER_FEEDBACK_SENDING" });
 
   try {
-    const response = await axios.post("https://ccc-backend.onrender.com/api/feedback/", newFeedback);
+    const response = await axios.post(`${baseURL}/api/feedback/`, newFeedback);
 
     console.log(response);
     dispatch({ type: "USER_FEEDBACK_SUCCESS" });
@@ -46,7 +47,7 @@ export const deletefeedbackAction = (userId) => async (dispatch) => {
   dispatch({ type: "FEEDBACK_DELETE_REQUEST" });
 
   try {
-    const response = await axios.delete(`https://ccc-backend.onrender.com/api/feedback/${userId}`);
+    const response = await axios.delete(`${baseURL}/api/feedback/${userId}`);
 
     const Toast = Swal.mixin({
       toast: true,
@@ -105,7 +106,7 @@ export const updateDisplayFeedback = (
   if (val === true) {
     try {
       const response = await axios.put(
-        `https://ccc-backend.onrender.com/api/feedback/${userId}`,
+        `${baseURL}/api/feedback/${userId}`,
         updateDisplayFeedback
       );
       const Toast = Swal.mixin({
@@ -153,7 +154,7 @@ export const updateDisplayFeedback = (
   } else {
     try {
       const response = await axios.put(
-        `https://ccc-backend.onrender.com/api/feedback/${userId}`,
+        `${baseURL}/api/feedback/${userId}`,
         updateDisplayFeedback
       );
       const Toast = Swal.mixin({
@@ -208,7 +209,7 @@ export const updateReplyMessageAction = (updateReplyMassage, userId) => async (
 
   try {
     const response = await axios.put(
-      `https://ccc-backend.onrender.com/api/feedback/update/reply/${userId}`,
+      `${baseURL}/api/feedback/update/reply/${userId}`,
       updateReplyMassage
     );
     const Toast = Swal.mixin({

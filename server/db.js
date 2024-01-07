@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 
-var mongoURL = 'mongodb+srv://Imesh:Imesh1234@cluster0.ygreoof.mongodb.net/ccc'
+const mongoURL = process.env.MONGO_URL;
 
-mongoose.connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true });
 
-var db = mongoose.connection
+const db = mongoose.connection;
 
 db.on('connected', () => {
     console.log(`Mongodb Connection Success!`);
-})
+});
 
 db.on('error', () => {
     console.log(`Mongodb Connection failed!`);
-})
+});
 
-module.exports = mongoose
+module.exports = mongoose;
