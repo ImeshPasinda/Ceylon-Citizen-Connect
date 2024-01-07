@@ -4,7 +4,8 @@
     "description": "Ceylon Citizen Connect MernStack Project",
     "main": "index.js",
     "scripts": {
-        "start": "node src/index.js"
+        "start": "node server.js",
+        "dev": "nodemon server.js"
     },
     "author": "Imesh,Darshi,Kimuthu,Kishen,Binuka,Dinithi,Ayuni,Sadeesha",
     "license": "ISC",
