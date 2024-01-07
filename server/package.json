@@ -7,7 +7,7 @@
         "start": "node server.js",
         "dev": "nodemon server.js"
     },
-    "author": "Imesh,Darshi,Kimuthu,Kishen,Binuka,Dinithi,Ayuni,Sadeesha",
+    "author": "Imesh,Darshi,Kimuthu,Dinithi",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.20.1",

@@ -38,11 +38,11 @@ app.use('/api/publicservice/',publicServiceRoute)
 app.use('/api/electricityUser/',electricityUserRoute)
 app.use('/api/waterUser/',WaterUserRoute)
 
-// app.get("/", (req, res) => {
+app.get("/", (req, res) => {
 
-//     res.send("Server Working!");
+    res.send("Server Working!");
 
-// });
+});
 
 
 const port = process.env.PORT;
