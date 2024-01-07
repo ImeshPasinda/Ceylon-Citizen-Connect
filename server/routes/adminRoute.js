@@ -7,14 +7,14 @@ const { cronConfig } = require("../server");
 
 cron.schedule(cronConfig.sampleAdminData, async () => {
     try {
-      await addsampleAdminData();
+        await addsampleAdminData();
     } catch (err) {
-      console.error('Error running cron job:', err);
+        console.error('Error running cron job:', err);
     }
-  }, {
-    timezone: 'Asia/Kolkata'
-  });
-  
+}, {
+    timezone: cronConfig.timezone
+});
+
 
 router.post("/login", async (req, res) => {
 
