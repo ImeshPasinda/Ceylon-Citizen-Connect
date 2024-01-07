@@ -1,7 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const Admin = require("../models/adminModel")
+const cron = require('node-cron');
+const { addsampleAdminData } = require('../utils/sampleAdminData');
+const { cronConfig } = require("../server");
 
+cron.schedule(cronConfig.sampleAdminData, async () => {
+    try {
+      await addsampleAdminData();
+    } catch (err) {
+      console.error('Error running cron job:', err);
+    }
+  }, {
+    timezone: 'Asia/Kolkata'
+  });
+  
 
 router.post("/login", async (req, res) => {
 
