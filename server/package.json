@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node server.js",
         "dev": "nodemon server.js",
-        "build": "echo 'No build step needed for Express server"
+        "build": "echo 'No build step needed for Express server'"
     },
     "author": "Imesh,Darshi,Kimuthu,Dinithi",
     "license": "ISC",
