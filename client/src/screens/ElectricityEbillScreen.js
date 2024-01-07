@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { baseURL } from '../apiConfig';
 
 export default function ElectricityEbillScreen() {
 
@@ -49,7 +50,7 @@ export default function ElectricityEbillScreen() {
     const [firstElectricitybill, setFirstElectricitybill] = useState(null); // Initialize with null or appropriate initial value
 
     useEffect(() => {
-        axios.get(`https://ccc-backend.onrender.com/api/electricityUser/elecbills/${currentUser.email}`)
+        axios.get(`${baseURL}/api/electricityUser/elecbills/${currentUser.email}`)
             .then(response => {
                 // Assuming 'createdAt' is the field you want to sort by
                 const sortedData = response.data.sort((a, b) => {

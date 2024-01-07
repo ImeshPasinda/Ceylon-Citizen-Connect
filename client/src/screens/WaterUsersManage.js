@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
 import Swal from "sweetalert2";
+import { baseURL } from '../apiConfig';
 
 function WaterUsersManage() {
   const [users, setUsers] = useState([]);
@@ -16,7 +17,7 @@ function WaterUsersManage() {
   useEffect(() => {
     // Fetch water users data from the server
     axios
-      .get("https://ccc-backend.onrender.com/api/waterUser/")  // Adjusted endpoint
+      .get(`${baseURL}/api/waterUser/`)  // Adjusted endpoint
       .then((res) => {
         setUsers(res.data);
         setFilteredUsers(res.data);
@@ -63,7 +64,7 @@ function WaterUsersManage() {
   const deleteUser = (userId) => {
     // Display a confirmation dialog before deleting the user
     axios
-      .delete(`https://ccc-backend.onrender.com/api/waterUser/${userId}`) // Adjusted endpoint
+      .delete(`${baseURL}/api/waterUser/${userId}`) // Adjusted endpoint
       .then((res) => {
         const Toast = Swal.mixin({
           toast: true,
@@ -129,7 +130,7 @@ function WaterUsersManage() {
     // Simulate a delay of 1.5 seconds for the loading spinner
     setTimeout(async () => {
       try {
-        const response = await axios.get(`https://ccc-backend.onrender.com/api/users/find-by-watermNo/${searchUserBywatermNo}`);
+        const response = await axios.get(`${baseURL}/api/users/find-by-watermNo/${searchUserBywatermNo}`);
         if (response.data) {
           setSelectedUser(response.data);
           setNotFound(false);
@@ -189,7 +190,7 @@ function WaterUsersManage() {
       console.log(billData);
 
       try {
-        const response = await axios.post('https://ccc-backend.onrender.com/api/waterUser/', billData);
+        const response = await axios.post('${baseURL}/api/waterUser/', billData);
         console.log('Bill saved:', response.data);
 
         const Toast = Swal.mixin({

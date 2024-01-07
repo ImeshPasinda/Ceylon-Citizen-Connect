@@ -3,14 +3,14 @@ import axios from "axios";
 import Chatbottheme from "../components/Chatbottheme";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { Link } from 'react-router-dom';
-
+import { baseURL } from '../apiConfig';
 
 export default function Homescreen() {
 
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
-        axios.get('https://ccc-backend.onrender.com/api/newsfeed/getallnews')
+             axios.get(`${baseURL}/api/newsfeed/getallnews`)
             .then(response => {
                 // Assuming the response data is an array of news items
                 setNewsData(response.data);

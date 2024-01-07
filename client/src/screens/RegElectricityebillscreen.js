@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Swal from "sweetalert2";
+import { baseURL } from '../apiConfig';
 
 export default function RegElectricityebillscreen() {
     const [phone, setPhone] = useState('');
@@ -20,7 +21,7 @@ export default function RegElectricityebillscreen() {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`https://ccc-backend.onrender.com/api/users/update/elecbill/${currentUser.email}`, {
+            const response = await axios.put(`${baseURL}/api/users/update/elecbill/${currentUser.email}`, {
                 phone,
                 isElecEbill: true,
                 address,
