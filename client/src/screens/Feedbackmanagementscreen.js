@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deletefeedbackAction } from "../actions/feedbackAction";
 import { updateDisplayFeedback } from "../actions/feedbackAction";
 import { updateReplyMessageAction } from "../actions/feedbackAction";
+import { baseURL } from '../apiConfig';
 
 let userId;
 let usersCount;
@@ -29,7 +30,7 @@ function Feedbackmanagementscreen() {
   useEffect(() => {
     function getFeedbacks() {
       axios
-        .get("https://ccc-backend.onrender.com/api/feedback/")
+        .get(`${baseURL}/api/feedback/`)
         .then((res) => {
           setUsers(res.data);
           setFilterdUsers(res.data);
@@ -47,7 +48,7 @@ function Feedbackmanagementscreen() {
   }, []);
 
   axios
-    .get("https://ccc-backend.onrender.com/api/users/")
+    .get(`${baseURL}/api/users/`)
     .then((res) => {
       setUsersforfeedback(res.data);
       // console.log(res.data)
@@ -60,7 +61,7 @@ function Feedbackmanagementscreen() {
 
   function feedbacks(userId) {
     axios
-      .get("https://ccc-backend.onrender.com/api/feedback/")
+      .get(`${baseURL}/api/feedback/`)
       .then((res) => {
         setUsers(res.data);
         console.log(res.data);

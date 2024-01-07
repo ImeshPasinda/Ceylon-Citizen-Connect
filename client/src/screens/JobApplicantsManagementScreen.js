@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { deleteApplicantAction } from "../actions/jobApplicantAction";
+import { baseURL } from '../apiConfig';
 
 let applicantArray;
 let AppCount;
@@ -23,7 +24,7 @@ function JobApplicantsManagementScreen() {
   useEffect(() => {
     function getJobs() {
       axios
-        .get("https://ccc-backend.onrender.com/api/jobapply/")
+        .get(`${baseURL}/api/jobapply/`)
         .then((res) => {
           setApplicants(res.data);
 

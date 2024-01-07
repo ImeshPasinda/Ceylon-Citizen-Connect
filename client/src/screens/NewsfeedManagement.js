@@ -10,7 +10,7 @@ import {
   deleteNewsAction,
   updateNewsAction,
 } from "../actions/newsfeedAtion";
-import QRCode from "qrcode.react";
+import { baseURL } from '../apiConfig';
 
 let newsId;
 let numNewsItems;
@@ -33,7 +33,7 @@ export default function Newsfeedmanagement() {
   useEffect(() => {
     function getNews() {
       axios
-        .get("https://ccc-backend.onrender.com/api/newsfeed/getallnews")
+        .get(`${baseURL}/api/newsfeed/getallnews`)
         .then((res) => {
           const allNews = res.data;
           setNews(allNews);
@@ -89,7 +89,7 @@ export default function Newsfeedmanagement() {
 
   function getCurrentNews(newsId) {
     axios
-      .get(`https://ccc-backend.onrender.com/api/newsfeed/getcurrentnews/${newsId}`)
+      .get(`${baseURL}/api/newsfeed/getcurrentnews/${newsId}`)
       .then((res) => {
         setNews(res.data);
         news = res.data;
