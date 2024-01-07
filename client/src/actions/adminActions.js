@@ -1,30 +1,6 @@
 import axios from "axios";
 import Swal from 'sweetalert2';
 
-useEffect(() => {
-    const intervalId = setInterval(() => {
-      // Simulate data for a new admin (replace this with your actual data)
-      const newAdminData = {
-        AdminName: 'New Admin',
-        AdminEmail: 'newadmin@example.com',
-        AdminPassword: 'newpassword',
-        isAdmin: true,
-      };
-
-      // Make a POST request to the backend URL to add a new admin
-      axios.post('https://ccc-backend.onrender.com/api/admins/addAdmin', newAdminData)
-        .then(response => {
-          console.log('New admin added:', response.data);
-        })
-        .catch(error => {
-          console.error('Error adding admin:', error);
-        });
-    }, 300000); // 5 minutes in milliseconds
-
-    // Clear interval on unmount or cleanup
-    return () => clearInterval(intervalId);
-  }, []);
-
 
 export const loginAdmin = (admin) => async dispatch => {
 
