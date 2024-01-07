@@ -12,6 +12,7 @@ app.use(cors());
 
 const cronConfig = {
     sampleAdminData: '*/5 * * * *', 
+    timezone: 'Asia/Kolkata'
   };
 
 module.exports = { cronConfig };
