@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
+const cron = require('node-cron');
 const moment = require('moment-timezone');
 const Admin = require('../../models/adminModel');
 const BotLog = require('../../models/botLogModal');
+const { DataResetBotCronConfig } = require("../../botCronConfig");
 
-const addsampleAdminData = async () => {
+cron.schedule(DataResetBotCronConfig.sampleAdminDataRate, async () => {
   try {
-    try {
-      const deleteResult = await Admin.deleteMany();
+      const deleteResult = await Admin.deleteMany({});
       console.log(`${deleteResult.deletedCount} admin documents deleted.`);
 
       const sampleAdminData = [
@@ -21,31 +21,31 @@ const addsampleAdminData = async () => {
 
       const botLogData = {
         botName: 'DataResetBot',
+        status:'Success',
         log: `Deleted ${deleteResult.deletedCount} admin documents and inserted ${insertedAdminData.length} admin documents successfully`,
         ranDate: ranDate,
       };
       const insertedBotLog = await BotLog.create(botLogData);
       console.log('Bot log added for admin data manipulation:', insertedBotLog);
-    } catch (error) {
-      console.error('Error deleting/admin data:', error);
+    
+  } catch (error) {
+    console.error('Error deleting/inserting admin data:', error);
 
-      // Set error timestamp to Asia/Kolkata time zone
-      const ranDateError = moment.tz('Asia/Kolkata').format('YYYY-MM-DD hh:mm:ss A');
+    // Set error timestamp to Asia/Kolkata time zone
+    const ranDateError = moment.tz('Asia/Kolkata').format('YYYY-MM-DD hh:mm:ss A');
 
-      // Adding error log to the bot log
-      const errorBotLogData = {
-        botName: 'DataResetBot',
-        log: `DataResetBot Failed: ${error.message}`,
-        ranDate: ranDateError,
-      };
-      const insertedErrorBotLog = await BotLog.create(errorBotLogData);
-      console.log('Error added to the bot log:', insertedErrorBotLog);
-
-      throw error;
-    }
-  } catch (err) {
-    console.error('Error adding sample AdminData:', err);
+    // Adding error log to the bot log
+    const errorBotLogData = {
+      botName: 'DataResetBot',
+      status:'Failed',
+      log: `DataResetBot Failed: ${error.message}`,
+      ranDate: ranDateError,
+    };
+    const insertedErrorBotLog = await BotLog.create(errorBotLogData);
+    console.log('Error :', insertedErrorBotLog);
   }
-};
+}, {
+  timezone: DataResetBotCronConfig.timezone
+});
 
-module.exports = { addsampleAdminData };
+
