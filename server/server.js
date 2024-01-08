@@ -9,6 +9,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
 
+//Bots
+const dataResetBot = require('./bots/dataResetBot/dataResetBot')
+const botLogClearBot = require('./bots/botLogClearBot/botLogClearBot')
 
 const userRoute = require('./routes/userRoute')
 const adminRoute = require('./routes/adminRoute')

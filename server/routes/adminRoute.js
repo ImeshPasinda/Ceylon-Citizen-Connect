@@ -1,19 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Admin = require("../models/adminModel")
-const cron = require('node-cron');
-const { addsampleAdminData } = require('../bots/dataResetBot/sampleAdminData');
-const { DataResetBotCronConfig } = require("../botCronConfig");
-
-cron.schedule(DataResetBotCronConfig.sampleAdminDataRate, async () => {
-    try {
-        await addsampleAdminData();
-    } catch (err) {
-        console.error('Error running cron job:', err);
-    }
-}, {
-    timezone: DataResetBotCronConfig.timezone
-});
 
 
 router.post("/login", async (req, res) => {
