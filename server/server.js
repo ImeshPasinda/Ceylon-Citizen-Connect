@@ -10,14 +10,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-const cronConfig = {
-    sampleAdminData: '*/5 * * * *', 
-    timezone: 'Asia/Kolkata'
-  };
-
-module.exports = { cronConfig };
-
-
 const userRoute = require('./routes/userRoute')
 const adminRoute = require('./routes/adminRoute')
 const feedbackRoute = require('./routes/feedbackRoute')
