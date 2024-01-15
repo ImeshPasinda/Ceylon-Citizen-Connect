@@ -6,7 +6,7 @@ const { BotLogClearBotCronConfig } = require("../../botCronConfig");
 cron.schedule(BotLogClearBotCronConfig.scheduleRate, async () => {
     try {
         const count = await BotLog.countDocuments();
-        if (count > 100) {
+        if (count > 50) {
             const deleteResult = await BotLog.deleteMany({});
             console.log(`Deleted ${deleteResult.deletedCount} Bot Logs.`);
 
@@ -21,7 +21,7 @@ cron.schedule(BotLogClearBotCronConfig.scheduleRate, async () => {
             const insertedBotLog = await BotLog.create(botLogData);
             console.log('Bot log added after clearing Bot Logs:', insertedBotLog);
         } else {
-            console.log('Bot Logs count is not greater than 10.');
+            console.log('Bot Logs count is not greater than 50.');
         }
     } catch (err) {
         const ranDateError = moment.tz('Asia/Kolkata').format('YYYY-MM-DD hh:mm:ss A');
