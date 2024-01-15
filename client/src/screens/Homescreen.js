@@ -10,7 +10,7 @@ export default function Homescreen() {
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
-             axios.get(`${baseURL}/api/newsfeed/getallnews`)
+        axios.get(`${baseURL}/api/newsfeed/getallnews`)
             .then(response => {
                 // Assuming the response data is an array of news items
                 setNewsData(response.data);
@@ -90,18 +90,18 @@ export default function Homescreen() {
                         <div class="container" style={{ paddingTop: '80px' }}>
                             <div class="row justify-content-center">
 
-                                <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
-                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
-                                        <div class="card-body">
-                                        <br/>
-                                            <h5 class="card-title">Regsiter for Electricity e-Bill Service</h5>
-                                            <br/>
-                                            <p class="card-text text-muted">Sign up now for hassle-free e-billing! Enjoy the convenience of managing your electricity bills online with our easy and secure service. Register today for a seamless billing experience.</p>
+                                <div className="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
+                                    <div className="card card shadow p-0 bg-white rounded justify-content-center">
+                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <br />
+                                            <h5 className="card-title">Register for Electricity e-Bill Service</h5>
+                                            <br />
+                                            <p className="card-text text-muted">Sign up now for hassle-free e-billing! Enjoy the convenience of managing your electricity bills online with our easy and secure service. Register today for a seamless billing experience.</p>
                                         </div>
-                                       
-                                        <div class="card-body">
-                                        <Link to="/regelecbill">
+
+                                        <div className="card-body">
+                                            <a href="/regelecbill">
                                                 <button
                                                     className="btn rounded-circle shadow-lg"
                                                     style={{
@@ -112,24 +112,24 @@ export default function Homescreen() {
                                                 >
                                                     <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
                                                 </button>
-                                            </Link>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
 
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
-                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
-                                        <div class="card-body">
-                                        <br/>
-                                            <h5 class="card-title">Regsiter for Water e-Bill Service</h5>
-                                            <br/>
-                                            <p class="card-text text-muted">Streamline your water bill payments effortlessly! Join our convenient e-billing service for easy management of your water bills online. Register now to simplify your billing experience.</p>
+                                <div className="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
+                                    <div className="card card shadow p-0 bg-white rounded justify-content-center">
+                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <br />
+                                            <h5 className="card-title">Register for Water e-Bill Service</h5>
+                                            <br />
+                                            <p className="card-text text-muted">Streamline your water bill payments effortlessly! Join our convenient e-billing service for easy management of your water bills online. Register now to simplify your billing experience.</p>
                                         </div>
 
-                                        <div class="card-body">
-                                            <Link to="/regwaterebill">
+                                        <div className="card-body">
+                                            <a href="/regwaterebill">
                                                 <button
                                                     className="btn rounded-circle shadow-lg"
                                                     style={{
@@ -140,25 +140,24 @@ export default function Homescreen() {
                                                 >
                                                     <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
                                                 </button>
-                                            </Link>
+                                            </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
 
-                                    <div class="card card shadow p-0 bg-white rounded justify-content-center" >
-                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
-                                        <div class="card-body">
-                                        <br/>
-                                            <h5 class="card-title">Government Job/Employement</h5>
-                                            <br/>
-                                            <p class="card-text text-muted">Welcome to our all-encompassing government job platform, where boundless opportunities await. Effortlessly navigate through an array of diverse roles meticulously tailored to match your passion.</p>
+                                <div className="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
+                                    <div className="card card shadow p-0 bg-white rounded justify-content-center">
+                                        <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <br />
+                                            <h5 className="card-title">Government Job/Employment</h5>
+                                            <br />
+                                            <p className="card-text text-muted">Welcome to our all-encompassing government job platform, where boundless opportunities await. Effortlessly navigate through an array of diverse roles meticulously tailored to match your passion.</p>
                                         </div>
-                                       
-                                        <div class="card-body">
-                                        <Link to="/jobportal">
+
+                                        <div className="card-body">
+                                            <a href="/jobportal">
                                                 <button
                                                     className="btn rounded-circle shadow-lg"
                                                     style={{
@@ -169,10 +168,9 @@ export default function Homescreen() {
                                                 >
                                                     <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
                                                 </button>
-                                            </Link>
+                                            </a>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="col-sm-12 col-md-3" style={{ paddingTop: '20px' }}>
@@ -180,14 +178,14 @@ export default function Homescreen() {
                                     <div class="card card shadow p-0 bg-white rounded justify-content-center" >
                                         <img src="https://adaderanaenglish.s3.amazonaws.com/1674463468-Public-sector-employees-Sri-Lanka-L.jpg" class="card-img-top" alt="..." />
                                         <div class="card-body">
-                                        <br/>
+                                            <br />
                                             <h5 class="card-title">Citizen Feedbacks & Concerns</h5>
-                                            <br/>
+                                            <br />
                                             <p class="card-text text-muted">Voice your feedback and find opportunities! Explore government job openings and share your concerns. Your voice matters in shaping a better employment landscape.</p>
                                         </div>
-                                       
+
                                         <div class="card-body">
-                                        <Link to="/feedback">
+                                            <a href="/feedback">
                                                 <button
                                                     className="btn rounded-circle shadow-lg"
                                                     style={{
@@ -198,7 +196,8 @@ export default function Homescreen() {
                                                 >
                                                     <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
                                                 </button>
-                                            </Link>
+                                            </a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -215,7 +214,7 @@ export default function Homescreen() {
                                                                 <p className="card-text" style={{ textAlign: 'left' }}>{newsItem.header}</p>
                                                             </div>
                                                             <div className="col-md-4 d-flex justify-content-end">
-                                                                <Link to="/newsfeed">
+                                                                <a href="/newsfeed">
                                                                     <button
                                                                         className="btn rounded-circle shadow-lg"
                                                                         style={{
@@ -226,8 +225,9 @@ export default function Homescreen() {
                                                                     >
                                                                         <i className="fa fa-arrow-right" style={{ fontSize: '25px' }}></i>
                                                                     </button>
-                                                                </Link>
+                                                                </a>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
