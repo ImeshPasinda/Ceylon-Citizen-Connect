@@ -1,5 +1,5 @@
 const DataResetBotCronConfig = {
-    sampleAdminDataRate: '0 0 * * ? *', //Daily at 12:00 AM
+    sampleAdminDataRate: '0 0 * * *', //Every day at 12:00 AM
     timezone: 'Asia/Kolkata'
 };
 
