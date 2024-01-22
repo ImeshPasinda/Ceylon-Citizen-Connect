@@ -1,10 +1,10 @@
 const DataResetBotCronConfig = {
-    sampleAdminDataRate: '0 0 * * ? ', //Daily at 12:00 AM
+    sampleAdminDataRate: '0 0 * * ? *', //Daily at 12:00 AM
     timezone: 'Asia/Kolkata'
 };
 
 const BotLogClearBotCronConfig = {
-    scheduleRate: '*/30 * * * *', //Every 30min
+    scheduleRate: '*/30 * * * *', //Every 30 minutes
     timezone: 'Asia/Kolkata'
 };
 
