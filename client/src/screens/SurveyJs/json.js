@@ -142,5 +142,6 @@ export const json = {
      ]
     }
    ],
-   "showTitle": false
+   "showTitle": false,
+   "completeText": "SUBMIT"
   }
