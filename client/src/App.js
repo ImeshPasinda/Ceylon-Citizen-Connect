@@ -31,6 +31,7 @@ import WaterEbillScreen from "./screens/WaterEbillScreen";
 import EbillSelectionAdminScreen from "./screens/EbillSelectionAdminScreen";
 import EbillSelectionScreen from "./screens/EbillSelectionScreen";
 import ElectricityEbillScreen from "./screens/ElectricityEbillScreen";
+import SurveyComponent from "./screens/SurveyJs/SurveyComponent";
 
 function App() {
   const userstate = useSelector((state) => state.loginUserReducer);
@@ -46,6 +47,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Homescreen />} />
+          <Route path="/servey" exact element={<SurveyComponent />} />
           <Route path="/login" exact element={<Loginscreen />} />
           <Route path="/admin/login" exact element={<Adminloginscreen />} />
           <Route path="/register" exact element={<Registerscreen />} />
