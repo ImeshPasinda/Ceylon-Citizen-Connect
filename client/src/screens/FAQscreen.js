@@ -14,8 +14,8 @@ function FAQScreen() {
             <br></br>
 
             <div className="h2 text-center fw-bold" style={{ fontFamily: 'Signika Negative, sans-serif' }}>
-  Frequently Asked Questions
-</div>
+              Frequently Asked Questions
+            </div>
 
 
             <div class="d-flex justify-content-center"></div>
