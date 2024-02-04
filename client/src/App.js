@@ -62,7 +62,7 @@ function App() {
           <Route path="/e-bills/electricityebill" exact element={<ElectricityEbillScreen />} />
           <Route path="/e-bills/waterebill" exact element={<WaterEbillScreen />} />
           <Route path="/e-bills" exact element={<EbillSelectionScreen />} />
-          
+
 
           {currentUser ? (
             <Route path="/feedback" exact element={<FeedbackScreen />} />
@@ -161,7 +161,7 @@ function App() {
           ) : (
             <Route path="/error" exact element={<Errorscreen />} />
           )}
-         
+
         </Routes>
       </BrowserRouter>
       <Footer />
