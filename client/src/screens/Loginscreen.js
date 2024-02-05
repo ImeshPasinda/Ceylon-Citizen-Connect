@@ -24,7 +24,7 @@ export default function Loginscreen() {
 
     function login() {
 
-        const user = { email, password }
+        const user = { email: email.toLowerCase(), password }
         dispatch(loginUser(user))
 
     }
