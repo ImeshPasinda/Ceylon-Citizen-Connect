@@ -46,9 +46,6 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-   // Convert email to lowercase
-   email = email.toLowerCase();
-
   try {
     const user = await User.find({ email, password });
 
