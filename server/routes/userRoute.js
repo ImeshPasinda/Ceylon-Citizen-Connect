@@ -4,7 +4,7 @@ const User = require("../models/userModel");
 
 router.post('/register', async (req, res) => {
   try {
-    const { watermNo, elecmNo, email, /* other fields */ } = req.body;
+    const { watermNo, elecmNo, email } = req.body;
 
     // Check uniqueness for non-null values
     const existingUserWithWatermNo = await User.findOne({ watermNo: { $ne: null, $eq: watermNo } });
@@ -45,9 +45,6 @@ router.post("/", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
-   // Convert email to lowercase
-   email = email.toLowerCase();
 
   try {
     const user = await User.find({ email, password });
