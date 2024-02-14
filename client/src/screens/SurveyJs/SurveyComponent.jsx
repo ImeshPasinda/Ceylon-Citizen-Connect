@@ -6,6 +6,8 @@ import { themeJson } from "./theme";
 import "./index.css";
 import { json } from "./json";
 import { baseURL } from "../../apiConfig";
+import Chatbotthemeccc from "../../components/Chatbottheme-ccc";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 function SurveyComponent() {
     const survey = new Model(json);
@@ -42,6 +44,29 @@ function SurveyComponent() {
             <br />
             <div className="header-txt">Pre - Signup Survey</div>
             <Survey model={survey} />
+            {['auto-start'].map((placement) => (
+                <OverlayTrigger
+                    trigger="click"
+                    key={placement}
+                    placement={placement}
+                    overlay={
+
+
+
+                        <div className="fixed-bottom" style={{ paddingBottom: '60px', paddingRight: '20px' }}><Chatbotthemeccc /></div>
+
+                    }
+                >
+                    <div className="position-fixed bottom-0 end-0" style={{ paddingBottom: '50px', paddingRight: '25px' }}>
+
+                        <button className="btn rounded-circle shadow-lg" data-bs-toggle="modal" data-bs-target="#exampleModall" style={{
+                            width: '60px',
+                            height: '60px',
+                            borderRadius: '60px'
+                        }} ><i className="fas fa-robot" style={{ fontSize: '25px' }} ></i></button>
+                    </div>
+                </OverlayTrigger>
+            ))}
         </div>
     );
 }
