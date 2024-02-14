@@ -1,2 +1,2 @@
-export const KEY = process.env.CHATBOT_KEY;
+export const KEY = process.env.REACT_APP_BOT_KEY;
 
