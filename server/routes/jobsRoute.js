@@ -24,6 +24,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+//get all unique job categories
+router.get("/categories", async (req, res) => {
+  try {
+    const categories = await Jobs.distinct("category");
+    res.send(categories);
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
 //update 
 router.put("/:id", async (req, res) => {
   let userId = req.params.id;
@@ -72,14 +82,13 @@ router.get("/:id", async (req, res) => {
 });
 
 router.get('/find/:category', async (req, res) => {
-  let { category } = req.params;
+  const { category } = req.params;
 
   try {
-    // Make the search case-insensitive using a regular expression
-    const currentCategory = await Jobs.find({ category: new RegExp(category, 'i') });
+    const currentCategory = await Jobs.find({ category });
 
     if (currentCategory.length === 0) {
-      res.status(404).json({ message: 'No data found' });
+      res.status(404).json({ message: 'No records found' });
     } else {
       // Extract job titles from the currentCategory array
       const jobTitles = currentCategory.map(job => job.jobtitle);
@@ -92,16 +101,6 @@ router.get('/find/:category', async (req, res) => {
   }
 });
 
-//get all unique job categories
-router.get("/categories", async (req, res) => {
-  try {
-    // Use a case-insensitive regular expression when fetching categories
-    const categories = await Jobs.distinct("category", { $options: 'i' });
-    res.send(categories);
-  } catch (error) {
-    return res.status(400).json({ message: error });
-  }
-});
 
 
 
