@@ -81,17 +81,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get('/find/:category', async (req, res) => {
-  const { category } = req.params;
+router.get('/find/:categories', async (req, res) => {
+  const { categories } = req.params;
+  const categoryArray = categories.split(',');
 
   try {
-    const currentCategory = await Jobs.find({ category });
+    const currentCategories = await Jobs.find({ category: { $in: categoryArray } });
 
-    if (currentCategory.length === 0) {
+    if (currentCategories.length === 0) {
       res.status(404).json({ message: 'No records found' });
     } else {
-      // Extract job titles from the currentCategory array
-      const jobTitles = currentCategory.map(job => job.jobtitle);
+      // Extract job titles from the currentCategories array
+      const jobTitles = currentCategories.map(job => job.jobtitle);
       
       res.json(jobTitles);
     }
@@ -100,6 +101,7 @@ router.get('/find/:category', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 
 
 
