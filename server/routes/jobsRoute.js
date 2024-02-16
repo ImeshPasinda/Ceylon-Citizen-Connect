@@ -88,7 +88,7 @@ router.get('/find/:category', async (req, res) => {
     const currentCategory = await Jobs.find({ category });
 
     if (currentCategory.length === 0) {
-      res.status(404).json({ message: 'No records found' });
+      res.status(404).json({ message: 'No' });
     } else {
       // Extract job titles from the currentCategory array
       const jobTitles = currentCategory.map(job => job.jobtitle);
