@@ -24,11 +24,11 @@ router.post("/", async (req, res) => {
   }
 });
 
-//get all job details
-router.get("/", async (req, res) => {
+//get all unique job categories
+router.get("/categories", async (req, res) => {
   try {
-    const jobs = await Jobs.find({});
-    res.send(jobs);
+    const categories = await Jobs.distinct("category");
+    res.send(categories);
   } catch (error) {
     return res.status(400).json({ message: error });
   }
@@ -81,6 +81,27 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Exporting router module for use in other files
+router.get('/find/:category', async (req, res) => {
+  const { category } = req.params;
+
+  try {
+    const currentCategory = await Jobs.find({ category });
+
+    if (currentCategory.length === 0) {
+      res.status(404).json({ message: 'No records found' });
+    } else {
+      // Extract job titles from the currentCategory array
+      const jobTitles = currentCategory.map(job => job.jobtitle);
+      
+      res.json(jobTitles);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
 
 module.exports = router;
