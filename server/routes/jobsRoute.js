@@ -93,7 +93,11 @@ router.get('/find/:categories', async (req, res) => {
     if (categoryArray.includes('All')) {
       // If 'All' is selected, retrieve all job titles
       const allJobTitles = await Jobs.distinct('jobtitle');
-      res.json(allJobTitles);
+      
+      // Move 'All' to the front of the array
+      const sortedJobTitles = ['All', ...allJobTitles];
+
+      res.json(sortedJobTitles);
     } else {
       // Retrieve job titles based on selected categories
       const currentCategories = await Jobs.find({ category: { $in: categoryArray } });
