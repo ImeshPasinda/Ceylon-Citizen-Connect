@@ -30,13 +30,14 @@ router.get("/categories", async (req, res) => {
     let categories = await Jobs.distinct("category");
 
     // Append 'All' to the categories array
-    categories.push('All');
+    categories.unshift('All');
 
     res.send(categories);
   } catch (error) {
     return res.status(400).json({ message: error });
   }
 });
+
 
 //update 
 router.put("/:id", async (req, res) => {
@@ -93,11 +94,7 @@ router.get('/find/:categories', async (req, res) => {
     if (categoryArray.includes('All')) {
       // If 'All' is selected, retrieve all job titles
       const allJobTitles = await Jobs.distinct('jobtitle');
-      
-      // Move 'All' to the front of the array
-      const sortedJobTitles = ['All', ...allJobTitles];
-
-      res.json(sortedJobTitles);
+      res.json(allJobTitles);
     } else {
       // Retrieve job titles based on selected categories
       const currentCategories = await Jobs.find({ category: { $in: categoryArray } });
