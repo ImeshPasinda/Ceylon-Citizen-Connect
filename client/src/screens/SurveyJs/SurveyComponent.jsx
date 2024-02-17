@@ -13,12 +13,16 @@ function SurveyComponent() {
     // Clone the testJson object to avoid modifying the original one
     const modifiedJson = JSON.parse(JSON.stringify(testJson));
 
+    //select employer country
     const country = 'New Zealand'
 
     // Update the choicesByUrl for the "suburb" question
     modifiedJson.pages[0].elements[0].elements[0].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/all/${country}`;
 
+    // Update the choicesByUrl for the "facility" question
+    modifiedJson.pages[0].elements[0].elements[1].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/filter/{suburb}/${country}`;
     const survey = new Model(modifiedJson);
+
     survey.applyTheme(themeJson);
 
     const handleSurveyComplete = async (sender) => {
