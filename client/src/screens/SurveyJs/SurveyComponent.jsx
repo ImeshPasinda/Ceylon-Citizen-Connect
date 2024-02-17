@@ -4,13 +4,21 @@ import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";
 import { themeJson } from "./theme";
 import "./index.css";
-import { json } from "./json";
+import { testJson } from "./testJson";
 import { baseURL } from "../../apiConfig";
 import Chatbotthemeccc from "../../components/Chatbottheme-ccc";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 function SurveyComponent() {
-    const survey = new Model(json);
+    // Clone the testJson object to avoid modifying the original one
+    const modifiedJson = JSON.parse(JSON.stringify(testJson));
+
+    const country = 'New Zealand'
+
+    // Update the choicesByUrl for the "suburb" question
+    modifiedJson.pages[0].elements[0].elements[0].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/all/${country}`;
+
+    const survey = new Model(modifiedJson);
     survey.applyTheme(themeJson);
 
     const handleSurveyComplete = async (sender) => {
@@ -50,15 +58,10 @@ function SurveyComponent() {
                     key={placement}
                     placement={placement}
                     overlay={
-
-
-
                         <div className="fixed-bottom" style={{ paddingBottom: '60px', paddingRight: '20px' }}><Chatbotthemeccc /></div>
-
                     }
                 >
                     <div className="position-fixed bottom-0 end-0" style={{ paddingBottom: '50px', paddingRight: '25px' }}>
-
                         <button className="btn rounded-circle shadow-lg" data-bs-toggle="modal" data-bs-target="#exampleModall" style={{
                             width: '60px',
                             height: '60px',

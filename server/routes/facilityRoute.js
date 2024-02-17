@@ -19,33 +19,34 @@ router.get("/all/:empCountry", async (req, res) => {
     }
   });
 
-router.get('/filter/:suburbs', async (req, res) => {
-  const { suburbs } = req.params;
-  const suburbsArray = suburbs.split(',');
-
-  try {
-    if (suburbsArray.includes('All')) {
-      // If 'All' is selected, retrieve all facilities
-      const allfacilities = await Facilities.distinct('facility');
-      res.json(allfacilities);
-    } else {
-      // Retrieve facilities based on selected suburbs
-      const currentsuburbs = await Facilities.find({ suburb: { $in: suburbsArray } });
-
-      if (currentsuburbs.length === 0) {
-        res.status(404).json({ message: 'No records found' });
+  router.get('/filter/:suburbs/:empCountry', async (req, res) => {
+    const { suburbs, empCountry } = req.params;
+    const suburbsArray = suburbs.split(',');
+  
+    try {
+      if (suburbsArray.includes('All')) {
+        // If 'All' is selected, retrieve all facilities based on empCountry
+        const allFacilities = await Facilities.find({ empCountry });
+        const uniqueFacilities = Array.from(new Set(allFacilities.map(facility => facility.facility)));
+        res.json(uniqueFacilities);
       } else {
-        // Extract facilities from the currentsuburbs array
-        const facilities = currentsuburbs.map(job => job.facility);
-        res.json(facilities);
+        // Retrieve facilities based on selected suburbs and empCountry
+        const currentSuburbs = await Facilities.find({ suburb: { $in: suburbsArray }, empCountry });
+  
+        if (currentSuburbs.length === 0) {
+          res.status(404).json({ message: 'No records found' });
+        } else {
+          // Extract facilities from the currentSuburbs array
+          const facilities = currentSuburbs.map(job => job.facility);
+          res.json(facilities);
+        }
       }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
     }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
+  });
+  
 
 
 module.exports = router;
