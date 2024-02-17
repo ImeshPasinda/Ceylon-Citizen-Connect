@@ -21,6 +21,7 @@ function SurveyComponent() {
 
     // Update the choicesByUrl for the "facility" question
     modifiedJson.pages[0].elements[0].elements[1].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/filter/{suburb}/${country}`;
+    
     const survey = new Model(modifiedJson);
 
     survey.applyTheme(themeJson);
