@@ -129,46 +129,10 @@ export const json = {
         },
         {
          "value": "Item 5",
-         "text": "Social Media"
+         "text": "Social Media"
         }
        ],
        "showSelectAllItem": true
-      },
-      {
-       "type": "panel",
-       "name": "countriesByRegion",
-       "elements": [
-        {
-         "type": "tagbox",
-         "name": "region",
-         "title": "Select a Category",
-         "choices": [
-          "Africa",
-          "Americas",
-          "Asia",
-          "Europe",
-          "Oceania"
-         ],
-         "choicesByUrl": {
-          "url": "https://ccc-backend.onrender.com/api/jobportal/categories"
-         }
-        },
-        {
-         "type": "tagbox",
-         "name": "reg_country",
-         "title": "Select a country",
-         "choices": [
-          "Item 1",
-          "Item 2",
-          "Item 3"
-         ],
-         "choicesByUrl": {
-          "url": "https://ccc-backend.onrender.com/api/jobportal/find/{region}"
-         }
-        }
-       ],
-       "title": "Filter countries by selected region",
-       "description": "Only countries from the selected region are queried."
       },
       {
        "type": "comment",
