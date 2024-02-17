@@ -24,20 +24,15 @@ router.post("/", async (req, res) => {
   }
 });
 
-// get all unique job categories
-router.get("/categories", async (req, res) => {
+//get all job details
+router.get("/", async (req, res) => {
   try {
-    let categories = await Jobs.distinct("category");
-
-    // Append 'All' to the categories array
-    categories.unshift('All');
-
-    res.send(categories);
+    const jobs = await Jobs.find({});
+    res.send(jobs);
   } catch (error) {
     return res.status(400).json({ message: error });
   }
 });
-
 
 //update 
 router.put("/:id", async (req, res) => {
@@ -86,36 +81,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get('/find/:categories', async (req, res) => {
-  const { categories } = req.params;
-  const categoryArray = categories.split(',');
-
-  try {
-    if (categoryArray.includes('All')) {
-      // If 'All' is selected, retrieve all job titles
-      const allJobTitles = await Jobs.distinct('jobtitle');
-      res.json(allJobTitles);
-    } else {
-      // Retrieve job titles based on selected categories
-      const currentCategories = await Jobs.find({ category: { $in: categoryArray } });
-
-      if (currentCategories.length === 0) {
-        res.status(404).json({ message: 'No records found' });
-      } else {
-        // Extract job titles from the currentCategories array
-        const jobTitles = currentCategories.map(job => job.jobtitle);
-        res.json(jobTitles);
-      }
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-
-
-
-
+// Exporting router module for use in other files
 
 module.exports = router;
