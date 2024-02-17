@@ -23,6 +23,7 @@ const publicServiceRoute=require('./routes/publicServiceRoute')
 const electricityUserRoute=require('./routes/electricityUserRoute')
 const WaterUserRoute=require('./routes/waterUserRoute')
 const SurveyRoute=require('./routes/surveyRoute')
+const FacilityRoute=require('./routes/facilityRoute')
 
 app.use('/api/feedback/', feedbackRoute)
 app.use('/api/users/', userRoute)
@@ -34,6 +35,7 @@ app.use('/api/publicservice/',publicServiceRoute)
 app.use('/api/electricityUser/',electricityUserRoute)
 app.use('/api/waterUser/',WaterUserRoute)
 app.use('/api/survey/',SurveyRoute)
+app.use('/api/facilities/',FacilityRoute)
 
 app.get("/", (req, res) => {
 
