@@ -9,6 +9,7 @@ import { testJson } from './testJson';
 import { baseURL } from '../../apiConfig';
 import Chatbotthemeccc from '../../components/Chatbottheme-ccc';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Test from './Test';
 
 function SurveyComponent() {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function SurveyComponent() {
         }
     }, []);
 
-    modifiedJson.pages[0].elements[0].elements[0].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/all/${country}`;
+    // modifiedJson.pages[0].elements[0].elements[0].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/all/${country}`;
     modifiedJson.pages[0].elements[0].elements[1].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/filter/{suburb}/${country}`;
 
     const survey = new Model(modifiedJson);
