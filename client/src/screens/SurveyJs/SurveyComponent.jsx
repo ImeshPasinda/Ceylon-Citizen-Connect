@@ -35,18 +35,34 @@ function SurveyComponent() {
 
     const handleSurveyComplete = async (sender) => {
         try {
+            // Extract the value of the selectedFacility dropdown
+            const selectedFacility = document.getElementById('selected-country-text').value;
+
+            // Log the selected value to the console
+            console.log('Selected Facility:', selectedFacility);
+
+            // Concatenate selectedFacility to sender.data (assuming sender.data is an object)
+            const newData = {
+                ...sender.data,
+                selectedFacility: selectedFacility,
+            };
+
+            // Log the updated data to the console
+            console.log('Updated Data:', newData);
+
+            // Your existing code to save survey data
             const response = await fetch(`${baseURL}/api/survey/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(sender.data),
+                body: JSON.stringify(newData),
             });
 
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 
             if (response.ok) {
-                console.log('Survey data saved successfully!', sender.data);
+                console.log('Survey data saved successfully!', newData);
             } else {
                 console.error('Failed to save survey data');
             }
@@ -57,6 +73,7 @@ function SurveyComponent() {
         // After completing the survey, navigate back to the survey page with the current country parameter
         navigate(`/survey?country=${encodeURIComponent(country)}`);
     };
+    
 
     survey.onComplete.add(handleSurveyComplete);
 
