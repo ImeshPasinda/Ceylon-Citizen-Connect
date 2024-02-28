@@ -1,53 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Display</title>
-</head>
-
 <body>
-
     <label for="country-select">Select Country:</label>
     <select id="country-select"></select>
-
     <p id="selected-country-text">Selected Country: </p>
 
     <script>
-        // Fetch data from the API
-        fetch('https://ccc-backend.onrender.com/api/facilities/all/Australia')
-            .then(response => response.json())
-            .then(data => {
-                // Manipulate the DOM to display the data
-                displayData(data);
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        const data = ['All', 'Adelaide', 'Auburn', 'Melbourne', 'Sydney'];
+        const dropdown = document.getElementById('country-select');
+        const selectedCountryText = document.getElementById('selected-country-text');
 
-        function displayData(data) {
-            // Get the container where data will be displayed
-            var dropdown = document.getElementById('country-select');
-            var selectedCountryText = document.getElementById('selected-country-text');
+        data.forEach(item => dropdown.add(new Option(item, item)));
 
-            // Iterate through the data and add options to the dropdown
-            data.forEach(item => {
-                var option = document.createElement('option');
-                option.value = item;
-                option.text = item;
-                dropdown.add(option);
-            });
-
-            // Add event listener to the dropdown
-            dropdown.addEventListener('change', function () {
-                // Update the text element with the selected country
-                selectedCountryText.textContent = 'Selected Country: ' + dropdown.value;
-            });
-        }
+        dropdown.addEventListener('change', () => selectedCountryText.textContent = 'Selected Country: ' + dropdown.value);
     </script>
-
 </body>
 
 </html>
