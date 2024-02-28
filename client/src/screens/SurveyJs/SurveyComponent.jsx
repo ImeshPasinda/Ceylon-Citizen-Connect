@@ -9,7 +9,6 @@ import { testJson } from './testJson';
 import { baseURL } from '../../apiConfig';
 import Chatbotthemeccc from '../../components/Chatbottheme-ccc';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Test from './Test';
 
 function SurveyComponent() {
     const navigate = useNavigate();
@@ -27,7 +26,7 @@ function SurveyComponent() {
         }
     }, []);
 
-    // modifiedJson.pages[0].elements[0].elements[0].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/all/${country}`;
+    modifiedJson.pages[0].elements[0].elements[0].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/all/${country}`;
     modifiedJson.pages[0].elements[0].elements[1].choicesByUrl.url = `https://ccc-backend.onrender.com/api/facilities/filter/{suburb}/${country}`;
 
     const survey = new Model(modifiedJson);
@@ -36,34 +35,18 @@ function SurveyComponent() {
 
     const handleSurveyComplete = async (sender) => {
         try {
-            // Extract the value of the selectedFacility dropdown
-            const selectedFacility = document.getElementById('selected-country-text').value;
-
-            // Log the selected value to the console
-            console.log('Selected Facility:', selectedFacility);
-
-            // Concatenate selectedFacility to sender.data (assuming sender.data is an object)
-            const newData = {
-                ...sender.data,
-                selectedFacility: selectedFacility,
-            };
-
-            // Log the updated data to the console
-            console.log('Updated Data:', newData);
-
-            // Your existing code to save survey data
             const response = await fetch(`${baseURL}/api/survey/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newData),
+                body: JSON.stringify(sender.data),
             });
 
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 
             if (response.ok) {
-                console.log('Survey data saved successfully!', newData);
+                console.log('Survey data saved successfully!', sender.data);
             } else {
                 console.error('Failed to save survey data');
             }
@@ -74,7 +57,6 @@ function SurveyComponent() {
         // After completing the survey, navigate back to the survey page with the current country parameter
         navigate(`/survey?country=${encodeURIComponent(country)}`);
     };
-    
 
     survey.onComplete.add(handleSurveyComplete);
 

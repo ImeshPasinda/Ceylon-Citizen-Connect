@@ -1,4 +1,3 @@
-
 export const testJson = {
     "title": "SurveyJs Template",
     "completedHtml": "<h3>Thank you for completing the survey!</h3>",
@@ -103,12 +102,6 @@ export const testJson = {
         "description": "Please select the facilities you and your family (if you chose a family membership) would be likely to use. You can choose facilities based on suburbs or select \"All\" in suburb to display all the facilities available  within fitness passport.  (Max 3 choices)",
         "showNumber": true,
         "showQuestionNumbers": "off"
-       },
-       {
-        "type": "html",
-        "name": "html",
-        "title": "HTML Component",
-        "html": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<body>\n    <label for=\"country-select\">Select Country:</label>\n    <select id=\"country-select\"></select>\n    <p id=\"selected-country-text\">Selected Country: </p>\n\n    <script>\n        const data = ['All', 'Adelaide', 'Auburn', 'Melbourne', 'Sydney'];\n        const dropdown = document.getElementById('country-select');\n        const selectedCountryText = document.getElementById('selected-country-text');\n\n        data.forEach(item => dropdown.add(new Option(item, item)));\n\n        dropdown.addEventListener('change', () => selectedCountryText.textContent = 'Selected Country: ' + dropdown.value);\n    </script>\n</body>\n\n</html>\n"
        },
        {
         "type": "comment",
